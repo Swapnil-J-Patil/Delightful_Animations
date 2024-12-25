@@ -119,7 +119,7 @@ fun AnimationExamplesScreen() {
     //***** Color change animations  *******
         //AnimateBackgroundColor()
         AnimateTextColor()
-        
+
     //***** Shape animations with size or padding  *******
         //TextExpandAnimation("Compose provides convenient APIs that allow you to solve for many common animation use cases. This section demonstrates how you can animate common properties of a composable.",)
         //HideAndShowDiagonally()
