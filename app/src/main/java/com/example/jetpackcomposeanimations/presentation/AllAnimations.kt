@@ -5,8 +5,10 @@ import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionLayout
+import androidx.compose.animation.SizeTransform
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
@@ -15,6 +17,7 @@ import androidx.compose.animation.core.EaseIn
 import androidx.compose.animation.core.EaseOut
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDp
@@ -30,7 +33,11 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.togetherWith
+import androidx.compose.animation.with
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -50,13 +57,16 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicText
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -70,6 +80,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -90,6 +101,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextMotion
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
@@ -125,11 +138,10 @@ fun AnimationExamplesScreen() {
 
     //***** Color change animations  *******
         //AnimateBackgroundColor()
-       AnimateTextColor()
+       //AnimateTextColor()
        // InfinitelyRepeatable()
 
     //***** Shape animations with size or padding  *******
-        //TextExpandAnimation("Compose provides convenient APIs that allow you to solve for many common animation use cases. This section demonstrates how you can animate common properties of a composable.",)
         //HideAndShowDiagonally()
         //HideSwiftly()
         //AnimatePadding()
@@ -138,7 +150,7 @@ fun AnimationExamplesScreen() {
         //TransitionExampleConcurrent()
 
 
-        //***** Button Animation  *******
+   //***** Button Animation  *******
         //AnimateElevation()
 
 
@@ -160,6 +172,20 @@ fun AnimationExamplesScreen() {
         //To open details screen on click of the list item with animation
         //AnimateBetweenComposableDestinations()
         //AnimatedContentExampleSwitch()        //Loading - Loaded - Error
+
+   //***** Text animations  *******
+        val text="Compose provides convenient APIs that allow you to solve for many common animation use cases. This section demonstrates how you can animate common properties of a composable."
+        //TextExpandAnimation(text)   //For existing or given text
+        //RevealingTextOnclick()     //For completely new text
+
+        //AnimateCounterScreen()        //Counter top - down animation
+        //AnimatedCounterDownUP()       //Counter bottom - up animation
+        //AnimatedCounterSimple()       //Counter blink animation
+        //AnimatedVisibilitySample()
+        //TextVisibilityAnimation(AnnotatedString("Click me!"))
+
+        //AnimatedVisibilityMutable()     //To track the visibility
+        //AnimatedVisibilityAnimateEnterExitChildren()
 
     }
 }
@@ -1027,7 +1053,249 @@ fun AnimateAlignment() {
 }
 
 
+@Composable
+fun AnimateCounterScreen() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        var count by remember {
+            mutableStateOf(0)
+        }
+        AnimatedCounter(
+            count = count,
+            style = MaterialTheme.typography.headlineLarge
+        )
+        Button(onClick = { count++ }) {
+            Text(text = "Increment")
+        }
+    }
+}
+@OptIn(ExperimentalAnimationApi::class)
+@Composable
+fun AnimatedCounter(
+    count: Int,
+    modifier: Modifier = Modifier,
+    style: TextStyle = MaterialTheme.typography.bodyMedium
+) {
+    var oldCount by remember {
+        mutableStateOf(count)
+    }
+    SideEffect {
+        oldCount = count
+    }
+    Row(modifier = modifier) {
+        val countString = count.toString()
+        val oldCountString = oldCount.toString()
+        for(i in countString.indices) {
+            val oldChar = oldCountString.getOrNull(i)
+            val newChar = countString[i]
+            val char = if(oldChar == newChar) {
+                oldCountString[i]
+            } else {
+                countString[i]
+            }
+            AnimatedContent(
+                targetState = char,
+                transitionSpec = {
+                    slideInVertically { it } with slideOutVertically { -it }
+                }
+            ) { char ->
+                Text(
+                    text = char.toString(),
+                    style = style,
+                    softWrap = false
+                )
+            }
+        }
+    }
+}
 
+@Preview
+@Composable
+fun AnimatedVisibilitySample() {
+    // [START android_compose_animations_animated_visibility]
+    var editable by remember { mutableStateOf(true) }
+    AnimatedVisibility(visible = editable) {
+        Text(text = "Edit")
+    }
+    // [END android_compose_animations_animated_visibility]
+}
+
+@Composable
+fun TextVisibilityAnimation(
+    message: AnnotatedString
+) {
+
+    var showDetails by remember { mutableStateOf(false) }
+
+    Column {
+        ClickableText(
+            text = message,
+            onClick = {
+                showDetails = !showDetails
+            }
+        )
+        AnimatedVisibility(showDetails) {
+            Text("showed hidden message")
+        }
+    }
+}
+
+@Preview
+@Composable
+fun AnimatedVisibilityMutable() {
+    // [START android_compose_animations_animated_visibility_mutable]
+    // Create a MutableTransitionState<Boolean> for the AnimatedVisibility.
+    val state = remember {
+        MutableTransitionState(false).apply {
+            // Start the animation immediately.
+            targetState = true
+        }
+    }
+    Column {
+        AnimatedVisibility(visibleState = state) {
+            Text(text = "Hello, world!")
+        }
+
+        // Use the MutableTransitionState to know the current animation state
+        // of the AnimatedVisibility.
+        Text(
+            text = when {
+                state.isIdle && state.currentState -> "Visible"
+                !state.isIdle && state.currentState -> "Disappearing"
+                state.isIdle && !state.currentState -> "Invisible"
+                else -> "Appearing"
+            }
+        )
+    }
+    // [END android_compose_animations_animated_visibility_mutable]
+}
+
+
+@OptIn(ExperimentalAnimationApi::class)
+@Preview
+@Composable
+fun AnimatedCounterSimple() {
+    // [START android_compose_animations_animated_content_simple]
+    Row {
+        var count by remember { mutableStateOf(0) }
+        Button(onClick = { count++ }) {
+            Text("Add")
+        }
+        AnimatedContent(targetState = count) { targetCount ->
+            // Make sure to use `targetCount`, not `count`.
+            Text(text = "Count: $targetCount")
+        }
+    }
+    // [END android_compose_animations_animated_content_simple]
+}
+
+@OptIn(ExperimentalAnimationApi::class)
+@Composable
+fun AnimatedCounterDownUP() {
+    // Define a state for count and initialize it to 0
+    var count by remember { mutableStateOf(0) }
+
+    // Button to increment the count value and trigger the animation
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .wrapContentSize(Alignment.Center)
+    ) {
+        Button(onClick = { count++ }) {
+            Text("Increment Count")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // AnimatedContent with a transition spec
+        AnimatedContent(
+            targetState = count,
+            transitionSpec = {
+                // Check if the target number is greater than the initial number
+                if (targetState > initialState) {
+                    // Slide up and fade in
+                    slideInVertically { height -> height } + fadeIn() with
+                            slideOutVertically { height -> -height } + fadeOut()
+                } else {
+                    // Slide down and fade in
+                    slideInVertically { height -> -height } + fadeIn() with
+                            slideOutVertically { height -> height } + fadeOut()
+                }.using(
+                    // Disable clipping to allow the transition to happen outside bounds
+                    SizeTransform(clip = false)
+                )
+            }
+        ) { targetCount ->
+            Text(text = "$targetCount", style = MaterialTheme.typography.headlineLarge)
+        }
+    }
+}
+
+
+@OptIn(ExperimentalAnimationApi::class)
+@Composable
+fun RevealingTextOnclick() {
+    // State to manage the selected state
+    var selected by remember { mutableStateOf(false) }
+
+    // Create the transition to animate properties when `selected` changes
+    val transition = updateTransition(selected, label = "selected state")
+
+    // Animate color and elevation based on `selected` state
+    val borderColor by transition.animateColor(label = "border color") { isSelected ->
+        if (isSelected) YellowAccent else Color.White
+    }
+
+    val elevation by transition.animateDp(label = "elevation") { isSelected ->
+        if (isSelected) 10.dp else 2.dp
+    }
+
+    // Surface with animated properties
+    Surface(
+        modifier = Modifier
+            .clickable { selected = !selected }  // Toggle selected state on click
+            .padding(16.dp),  // Padding around the surface
+        shape = RoundedCornerShape(8.dp),
+        border = BorderStroke(2.dp, borderColor),
+        tonalElevation = elevation
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        ) {
+            Text(text = "Hello, world!")
+
+            /* // AnimatedVisibility: Shows or hides the second text based on `selected` state
+             AnimatedVisibility(
+                 visible = selected,  // Make it visible when `selected` is true
+                 enter = expandVertically(),  // Use vertical expansion when it enters
+                 exit = shrinkVertically()   // Use vertical shrink when it exits
+             ) {
+                 Text(text = "It is fine today.")
+             }*/
+
+            // AnimatedContent: Switch between text and icon based on `selected` state
+            AnimatedContent(
+                targetState = selected,  // Target state is `selected`
+                transitionSpec = {
+                    // You can specify custom transitions here if needed
+                    fadeIn() with fadeOut()  // Example of fade transition
+                }
+            ) { targetState ->
+                if (targetState) {
+                    Text(text = "Compose provides convenient APIs that allow you to solve for many common animation use cases. This section demonstrates how you can animate common properties of a composable.")
+                }
+                else {
+                    Icon(imageVector = Icons.Default.Phone, contentDescription = "Phone")
+                }
+            }
+        }
+    }
+}
 enum class UiState {
     Loading,
     Loaded,
