@@ -14,6 +14,7 @@ import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.EaseIn
 import androidx.compose.animation.core.EaseOut
 import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDp
@@ -30,6 +31,7 @@ import androidx.compose.animation.core.updateTransition
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -37,6 +39,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -75,9 +78,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TransformOrigin
+import androidx.compose.ui.graphics.drawscope.Fill
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.layout
@@ -118,7 +125,8 @@ fun AnimationExamplesScreen() {
 
     //***** Color change animations  *******
         //AnimateBackgroundColor()
-        AnimateTextColor()
+       AnimateTextColor()
+       // InfinitelyRepeatable()
 
     //***** Shape animations with size or padding  *******
         //TextExpandAnimation("Compose provides convenient APIs that allow you to solve for many common animation use cases. This section demonstrates how you can animate common properties of a composable.",)
@@ -127,17 +135,32 @@ fun AnimationExamplesScreen() {
         //AnimatePadding()
         //AnimateSizeChange()
        // AnimateSizeChange_Specs()
+        //TransitionExampleConcurrent()
+
+
+        //***** Button Animation  *******
+        //AnimateElevation()
+
 
     //***** Shape animations with translation  *******
         //AnimateOffset()
         //AnimateOffset()
+        //AnimationLayout()       //toggled boxes
+        //AnimateAlignment()        //Change the alignment from left to right
 
         //SmoothAnimateText()               //For animating infinitely
         //ControlledSmoothAnimateText()     //For animating once
 
+        //ConcurrentAnimatable()
+        //SequentialAnimations()              //More than one animation
+        //ConcurrentAnimations()
+
+
    //***** Navigating between screens with animation  *******
         //To open details screen on click of the list item with animation
-       // AnimateBetweenComposableDestinations()
+        //AnimateBetweenComposableDestinations()
+        //AnimatedContentExampleSwitch()        //Loading - Loaded - Error
+
     }
 }
 
@@ -584,15 +607,17 @@ fun InfinitelyRepeatable() {
         initialValue = Color.Green,
         targetValue = Color.Blue,
         animationSpec = infiniteRepeatable(
-            animation = tween(1000, easing = LinearEasing),
+            animation = tween(2000, easing = LinearEasing),
             repeatMode = RepeatMode.Reverse
         ),
         label = "color"
     )
     Column(
-        modifier = Modifier.drawBehind {
-            drawRect(color)
-        }
+        modifier = Modifier
+            .drawBehind {
+                drawRect(color)
+            }
+            .fillMaxSize()
     ) {
         // your composable here
     }
@@ -603,19 +628,26 @@ fun InfinitelyRepeatable() {
 @Composable
 fun ConcurrentAnimatable() {
     // [START android_compose_animation_on_launch]
-    val alphaAnimation = remember {
-        Animatable(0f)
-    }
+    val alphaAnimation = remember { Animatable(0f) }
+
     LaunchedEffect(Unit) {
-        alphaAnimation.animateTo(1f)
+        alphaAnimation.animateTo(
+            targetValue = 1f,
+            animationSpec = tween(durationMillis = 1000) // Add duration for a smoother effect
+        )
     }
+
     Box(
-        modifier = Modifier.graphicsLayer {
-            alpha = alphaAnimation.value
-        }
+        modifier = Modifier
+            .fillMaxSize()
+            .graphicsLayer {
+                alpha = alphaAnimation.value
+            }
+            .background(Color.Blue) // Add a background color to make it visible
     )
     // [END android_compose_animation_on_launch]
 }
+
 
 @Preview
 @Composable
@@ -625,12 +657,38 @@ fun SequentialAnimations() {
     val yAnimation = remember { Animatable(0f) }
 
     LaunchedEffect("animationKey") {
-        alphaAnimation.animateTo(1f)
-        yAnimation.animateTo(100f)
-        yAnimation.animateTo(500f, animationSpec = tween(100))
+        alphaAnimation.animateTo(
+            targetValue = 1f,
+            animationSpec = tween(durationMillis = 500) // Smooth fade-in
+        )
+        yAnimation.animateTo(
+            targetValue = 100f,
+            animationSpec = spring(
+                dampingRatio = Spring.DampingRatioMediumBouncy, // Bouncy motion
+                stiffness = Spring.StiffnessLow                // Smooth and relaxed
+            )
+        )
+        yAnimation.animateTo(
+            targetValue = 500f,
+            animationSpec = spring(
+                dampingRatio = Spring.DampingRatioMediumBouncy,  // Even bouncier motion
+                stiffness = Spring.StiffnessLow            // Slightly stiffer
+            )
+        )
     }
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .graphicsLayer {
+                alpha = alphaAnimation.value
+                translationY = yAnimation.value
+            }
+            .background(Color.Red) // Add a background color to make it visible
+    )
     // [END android_compose_animation_sequential]
 }
+
 
 @Preview
 @Composable
@@ -640,15 +698,44 @@ fun ConcurrentAnimations() {
     val yAnimation = remember { Animatable(0f) }
 
     LaunchedEffect("animationKey") {
+        // Launch concurrent animations
         launch {
-            alphaAnimation.animateTo(1f)
+            alphaAnimation.animateTo(
+                targetValue = 1f,
+                animationSpec = tween(durationMillis = 2000) // Smooth fade-in
+            )
         }
         launch {
-            yAnimation.animateTo(100f)
+            yAnimation.animateTo(
+                targetValue = 200f, // Visible translation range
+                animationSpec = spring(
+                    dampingRatio = Spring.DampingRatioMediumBouncy, // Bouncy vertical movement
+                    stiffness = Spring.StiffnessLow                // Smooth and relaxed
+                )
+            )
         }
+    }
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Gray) // Background to contrast animation
+    ) {
+        Box(
+            modifier = Modifier
+                .size(100.dp) // Constrained size for visibility
+                .graphicsLayer {
+                    alpha = alphaAnimation.value
+                    translationY = yAnimation.value
+                }
+                .background(Color.Blue) // Add a visible color to the animated box
+                .align(Alignment.TopCenter) // Align for better visual observation
+        )
     }
     // [END android_compose_animation_concurrent]
 }
+
+
 
 enum class BoxState {
     Collapsed,
@@ -660,22 +747,53 @@ enum class BoxState {
 fun TransitionExampleConcurrent() {
     // [START android_compose_concurrent_transition]
     var currentState by remember { mutableStateOf(BoxState.Collapsed) }
-    val transition = updateTransition(currentState, label = "transition")
+    val transition = updateTransition(targetState = currentState, label = "transition")
 
     val rect by transition.animateRect(label = "rect") { state ->
         when (state) {
-            BoxState.Collapsed -> Rect(0f, 0f, 100f, 100f)
-            BoxState.Expanded -> Rect(100f, 100f, 300f, 300f)
+            BoxState.Collapsed -> Rect(0f, 0f, 200f, 200f) // Smaller rect
+            BoxState.Expanded -> Rect(300f, 300f, 600f, 600f) // Larger rect
         }
     }
     val borderWidth by transition.animateDp(label = "borderWidth") { state ->
         when (state) {
-            BoxState.Collapsed -> 1.dp
-            BoxState.Expanded -> 0.dp
+            BoxState.Collapsed -> 4.dp // Thick border for visibility
+            BoxState.Expanded -> 0.dp // No border
+        }
+    }
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.LightGray)
+    ) {
+        Canvas(
+            modifier = Modifier
+                .fillMaxSize()
+                .clickable {
+                    currentState = if (currentState == BoxState.Collapsed) {
+                        BoxState.Expanded
+                    } else {
+                        BoxState.Collapsed
+                    }
+                }
+        ) {
+            // Draw a rectangle using the animated rect values
+            drawRect(
+                color = Color.Blue,
+                topLeft = Offset(rect.left, rect.top),
+                size = Size(rect.width - rect.left, rect.height - rect.top), // Ensure proper size
+                style = if (borderWidth > 0.dp) {
+                    Stroke(width = borderWidth.toPx()) // Animated border
+                } else {
+                    Fill // Filled rectangle when borderWidth = 0.dp
+                }
+            )
         }
     }
     // [END android_compose_concurrent_transition]
 }
+
 
 @Preview
 @Composable
@@ -866,39 +984,49 @@ fun AnimationLayout() {
 @Composable
 fun AnimateAlignment() {
     // [START android_compose_animate_item_placement]
-    var toggled by remember {
-        mutableStateOf(false)
-    }
-    val interactionSource = remember {
-        MutableInteractionSource()
-    }
+    var toggled by remember { mutableStateOf(false) }
+    val interactionSource = remember { MutableInteractionSource() }
+
     Column(
         modifier = Modifier
             .padding(16.dp)
             .fillMaxSize()
             .clickable(indication = null, interactionSource = interactionSource) {
                 toggled = !toggled
-            }
+            },
+        horizontalAlignment = if (toggled) Alignment.End else Alignment.Start, // Change alignment on toggle
+        verticalArrangement = Arrangement.SpaceBetween // Spacing between items
     ) {
+        // Animating offset or alignment
+        val offsetX by animateDpAsState(
+            targetValue = if (toggled) 150.dp else 0.dp,
+            animationSpec = tween(durationMillis = 2000, easing = LinearOutSlowInEasing)
+        )
 
+        // Boxes with animated offset
         Box(
             modifier = Modifier
                 .size(100.dp)
-                .background(colorBlue)
+                .background(Color.Blue)
+                .offset(x = offsetX)
         )
         Box(
             modifier = Modifier
                 .size(100.dp)
-                .background(colorGreen)
+                .background(Color.Green)
+                .offset(x = offsetX)
         )
         Box(
             modifier = Modifier
                 .size(100.dp)
-                .background(colorBlue)
+                .background(Color.Blue)
+                .offset(x = offsetX)
         )
     }
     // [END android_compose_animate_item_placement]
 }
+
+
 
 enum class UiState {
     Loading,
@@ -909,110 +1037,9 @@ enum class UiState {
 val colorGreen = Color(0xFF53D9A1)
 val colorBlue = Color(0xFF4FC3F7)
 
-@Preview
-@Composable
-fun AnimationLayoutIndividualItem() {
-    var toggled by remember {
-        mutableStateOf(false)
-    }
-    val interactionSource = remember {
-        MutableInteractionSource()
-    }
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .clickable(indication = null, interactionSource = interactionSource) {
-                toggled = !toggled
-            }
-    ) {
-        val offset = animateIntOffsetAsState(
-            targetValue = if (toggled) {
-                IntOffset(150, 150)
-            } else {
-                IntOffset.Zero
-            },
-            label = "offset"
-        )
-        Box(
-            modifier = Modifier
-                .size(100.dp)
-                .background(colorBlue)
-        )
-        Box(
-            modifier = Modifier
-                .layout { measurable, constraints ->
-                    val placeable = measurable.measure(constraints)
-                    layout(placeable.width + offset.value.x, placeable.height + offset.value.y) {
-                        placeable.placeRelative(offset.value)
-                    }
-                }
-                .size(100.dp)
-                .background(colorGreen)
-        )
-        Box(
-            modifier = Modifier
-                .size(100.dp)
-                .background(colorBlue)
-        )
-    }
-}
 
-@Composable
-private fun ScreenLanding(onItemClicked: (String) -> Unit) {
-    LazyVerticalGrid(
-        columns = GridCells.Adaptive(200.dp),
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
-        content = {
-            items(randomSizedPhotos) { photo ->
-                AsyncImage(
-                    model = photo,
-                    contentScale = ContentScale.Crop,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(200.dp)
-                        .clickable {
-                            onItemClicked(photo.toString())
-                        }
-                )
-            }
-        },
-        modifier = Modifier.fillMaxSize()
-    )
-}
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun ScreenDetails(photo: String, onBackClicked: () -> Unit) {
-    Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text("Photo Details")
-                },
-                navigationIcon = {
-                    IconButton(onClick = { onBackClicked() }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
-                    }
-                }
-            )
-        }
-    ) { padding ->
-        Column(modifier = Modifier.padding(padding)) {
-            AsyncImage(
-                model = photo,
-                contentScale = ContentScale.Crop,
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-            )
-            Spacer(modifier = Modifier.height(18.dp))
-            Text("Photo details", fontSize = 18.sp, modifier = Modifier.padding(8.dp))
-        }
-    }
-}
+
 
 private val randomSizedPhotos = listOf(
     randomSampleImageUrl(width = 1600, height = 900),
