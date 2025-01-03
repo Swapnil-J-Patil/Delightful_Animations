@@ -1,6 +1,5 @@
 package com.example.jetpackcomposeanimations.presentation.util
 
-import androidx.compose.runtime.Composable
 
 private val rangeForRandom = (0..100000)
 

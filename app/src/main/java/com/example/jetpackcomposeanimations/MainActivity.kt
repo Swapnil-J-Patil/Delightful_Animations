@@ -17,11 +17,7 @@ class MainActivity : ComponentActivity() {
             JetpackComposeAnimationsTheme {
                 AnimationExamplesScreen()
 
-               // PagerAnimation()
-               /* DragDropList(
-                    items = ReorderItem,
-                    onMove = { fromIndex, toIndex -> ReorderItem.move(fromIndex, toIndex)}
-                )*/
+
 
             }
         }

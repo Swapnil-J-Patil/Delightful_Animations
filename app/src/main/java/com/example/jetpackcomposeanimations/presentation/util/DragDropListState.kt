@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeanimations.presentation.listanimation
+package com.example.jetpackcomposeanimations.presentation.util
 
 import androidx.compose.foundation.lazy.LazyListItemInfo
 import androidx.compose.foundation.lazy.LazyListState

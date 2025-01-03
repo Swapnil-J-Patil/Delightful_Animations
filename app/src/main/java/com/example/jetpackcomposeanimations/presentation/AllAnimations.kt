@@ -1,10 +1,7 @@
 package com.example.jetpackcomposeanimations.presentation
 
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.EnterTransition
-import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionLayout
@@ -13,8 +10,6 @@ import androidx.compose.animation.animateColor
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.EaseIn
-import androidx.compose.animation.core.EaseOut
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.MutableTransitionState
@@ -46,7 +41,6 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -58,26 +52,18 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
@@ -105,7 +91,6 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextMotion
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavType
@@ -113,17 +98,17 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import coil.compose.AsyncImage
 import com.example.jetpackcomposeanimations.R
 import com.example.jetpackcomposeanimations.presentation.screens.DetailScreen
 import com.example.jetpackcomposeanimations.presentation.screens.ListScreen
 
 import com.example.jetpackcomposeanimations.presentation.ui.theme.YellowAccent
 import com.example.jetpackcomposeanimations.presentation.util.randomSampleImageUrl
-import java.net.URLDecoder
-import java.net.URLEncoder
 import kotlin.math.roundToInt
 import kotlinx.coroutines.launch
+import androidx.compose.ui.unit.IntOffset  // Import for IntOffset
+import com.example.jetpackcomposeanimations.presentation.listanimation.ResponsiveGrid
+
 
 @Preview
 @Composable
@@ -175,8 +160,10 @@ fun AnimationExamplesScreen() {
 
    //***** Text animations  *******
         val text="Compose provides convenient APIs that allow you to solve for many common animation use cases. This section demonstrates how you can animate common properties of a composable."
+
         //TextExpandAnimation(text)   //For existing or given text
         //RevealingTextOnclick()     //For completely new text
+       // SwipeableTextAnimation()
 
         //AnimateCounterScreen()        //Counter top - down animation
         //AnimatedCounterDownUP()       //Counter bottom - up animation
@@ -187,8 +174,19 @@ fun AnimationExamplesScreen() {
         //AnimatedVisibilityMutable()     //To track the visibility
         //AnimatedVisibilityAnimateEnterExitChildren()
 
+   //***** List animations  *******
+
+        //PagerAnimation()            //Horizontal scrolling with animation
+       /* DragDropList(
+            items = ReorderItem,
+            onMove = { fromIndex, toIndex -> ReorderItem.move(fromIndex, toIndex)}
+        )*/
+
+        ResponsiveGrid()            //According to screen size
     }
 }
+
+
 
 @Composable
 fun TextExpandAnimation(name: String, modifier: Modifier = Modifier) {
