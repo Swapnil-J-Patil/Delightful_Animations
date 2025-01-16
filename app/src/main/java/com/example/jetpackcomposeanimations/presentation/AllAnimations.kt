@@ -1,5 +1,8 @@
 package com.example.jetpackcomposeanimations.presentation
 
+import android.graphics.RuntimeShader
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
@@ -73,15 +76,19 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.ImageShader
 import androidx.compose.ui.graphics.ShaderBrush
+import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -114,6 +121,7 @@ import kotlinx.coroutines.launch
 import androidx.compose.ui.unit.IntOffset  // Import for IntOffset
 import com.example.jetpackcomposeanimations.presentation.listanimation.ResponsiveGrid
 import kotlinx.coroutines.delay
+import org.intellij.lang.annotations.Language
 
 
 @Preview
@@ -130,7 +138,8 @@ fun AnimationExamplesScreen() {
     //***** Color change animations  *******
         //AnimateBackgroundColor()
        //AnimateTextColor()
-       // InfinitelyRepeatable()
+        //InfinitelyRepeatable()
+       InfinitelyRepeatableGradientColors()
 
     //***** Shape animations with size or padding  *******
         //HideAndShowDiagonally()
@@ -185,7 +194,7 @@ fun AnimationExamplesScreen() {
         //AnimatedVisibilityAnimateEnterExitChildren()
 
         /*TextWithPhotoBackground(
-            Modifier.padding(top = 45.dp, start = 15.dp, end = 15.dp))*/ 
+            Modifier.padding(top = 45.dp, start = 15.dp, end = 15.dp))*/
 
 
    //***** List animations  *******
@@ -705,6 +714,51 @@ fun InfinitelyRepeatable() {
     }
     // [END android_compose_animation_infinitely_repeating]
 }
+val Coral = Color(0xFFF3A397)
+val LightYellow = Color(0xFFF8EE94)
+@Preview
+@Composable
+fun InfinitelyRepeatableGradientColors() {
+    // Gradient colors
+    val brushColors = listOf(Coral, LightYellow)
+
+    // Animation state
+    val infiniteTransition = rememberInfiniteTransition(label = "background")
+    val targetOffset = with(LocalDensity.current){
+        1000.dp.toPx()
+    }
+    val animatedOffset by infiniteTransition.animateFloat(
+        initialValue = 0f,
+        targetValue = targetOffset, // Adjust based on desired movement range
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis = 5000, easing = LinearEasing),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "offset"
+    )
+
+    // Composable with animated gradient
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .blur(40.dp)
+            .drawWithCache {
+                val brushSize = 400f
+                val brush = Brush.linearGradient(
+                    colors = brushColors,
+                    start = Offset(animatedOffset, animatedOffset),
+                    end = Offset(animatedOffset + brushSize, animatedOffset + brushSize),
+                    tileMode = TileMode.Mirror
+                )
+                onDrawBehind {
+                    drawRect(brush)
+                }
+            }
+    ) {
+        // Add your other composables here
+    }
+}
+
 
 @Preview
 @Composable
