@@ -79,6 +79,9 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.ImageShader
+import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -86,6 +89,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
@@ -180,6 +184,10 @@ fun AnimationExamplesScreen() {
         //AnimatedVisibilityMutable()     //To track the visibility
         //AnimatedVisibilityAnimateEnterExitChildren()
 
+        /*TextWithPhotoBackground(
+            Modifier.padding(top = 45.dp, start = 15.dp, end = 15.dp))*/ 
+
+
    //***** List animations  *******
 
         //PagerAnimation()            //Horizontal scrolling with animation
@@ -192,7 +200,17 @@ fun AnimationExamplesScreen() {
     }
 }
 
-
+@Composable
+fun TextWithPhotoBackground(modifier: Modifier = Modifier) {
+    val imageBrush= ShaderBrush(ImageShader(ImageBitmap.imageResource(id = R.drawable.img1)))
+    Text(text = "Jetpack Compose",
+        style = TextStyle(
+            brush = imageBrush,
+            fontWeight = FontWeight.Bold,
+            fontSize = 36.sp
+        )
+    )
+}
 
 @Composable
 fun TextExpandAnimation(name: String, modifier: Modifier = Modifier) {
@@ -266,12 +284,23 @@ fun TypingAnimation(text: String, modifier: Modifier = Modifier) {
     // Launch the typing animation
     LaunchedEffect(fullText) {
         while (true) {
+            // Typing animation forward
             for (i in fullText.indices) {
                 visibleText = fullText.take(i + 1)
                 delay(100) // Controls the typing speed
             }
-            // Loop the animation after finishing the full text
-            delay(1000) // Wait before starting again
+
+            // Pause for a moment before starting to erase the text
+            delay(1000)
+
+            // Erase animation backward
+            for (i in fullText.length downTo 1) {
+                visibleText = fullText.take(i - 1)
+                delay(50) // Controls the speed of erasing
+            }
+
+            // Pause again before starting the next iteration
+            //delay(500)
         }
     }
 
