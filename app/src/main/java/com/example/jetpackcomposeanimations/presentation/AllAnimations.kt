@@ -89,6 +89,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextMotion
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -108,6 +109,7 @@ import kotlin.math.roundToInt
 import kotlinx.coroutines.launch
 import androidx.compose.ui.unit.IntOffset  // Import for IntOffset
 import com.example.jetpackcomposeanimations.presentation.listanimation.ResponsiveGrid
+import kotlinx.coroutines.delay
 
 
 @Preview
@@ -155,12 +157,16 @@ fun AnimationExamplesScreen() {
 
    //***** Navigating between screens with animation  *******
         //To open details screen on click of the list item with animation
-        //AnimateBetweenComposableDestinations()
+       // AnimateBetweenComposableDestinations()
         //AnimatedContentExampleSwitch()        //Loading - Loaded - Error
 
    //***** Text animations  *******
         val text="Compose provides convenient APIs that allow you to solve for many common animation use cases. This section demonstrates how you can animate common properties of a composable."
 
+        /*TypingAnimation(
+            " Let's Dive Into the Market!",
+            Modifier.padding(top = 45.dp, start = 15.dp, end = 15.dp)
+        )*/
         //TextExpandAnimation(text)   //For existing or given text
         //RevealingTextOnclick()     //For completely new text
        // SwipeableTextAnimation()
@@ -182,7 +188,7 @@ fun AnimationExamplesScreen() {
             onMove = { fromIndex, toIndex -> ReorderItem.move(fromIndex, toIndex)}
         )*/
 
-        ResponsiveGrid()            //According to screen size
+        //ResponsiveGrid()            //According to screen size
     }
 }
 
@@ -252,6 +258,29 @@ fun HideAndShowDiagonally() {
     }
 }
 
+@Composable
+fun TypingAnimation(text: String, modifier: Modifier = Modifier) {
+    var visibleText by remember { mutableStateOf("") }
+    val fullText = text
+
+    // Launch the typing animation
+    LaunchedEffect(fullText) {
+        while (true) {
+            for (i in fullText.indices) {
+                visibleText = fullText.take(i + 1)
+                delay(100) // Controls the typing speed
+            }
+            // Loop the animation after finishing the full text
+            delay(1000) // Wait before starting again
+        }
+    }
+
+    Text(
+        text = visibleText,
+        style = TextStyle(fontSize = 22.sp, fontWeight = FontWeight.Bold),
+        modifier = modifier
+    )
+}
 @Preview
 @Composable
 fun HideSwiftly() {
