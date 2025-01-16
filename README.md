@@ -1,1 +1,1 @@
-Explore cool animations of jetpack compose in systematic way
+Explore cool animations of jetpack compose in systematic way.
