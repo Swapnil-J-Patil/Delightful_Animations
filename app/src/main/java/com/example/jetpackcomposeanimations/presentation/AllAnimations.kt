@@ -119,6 +119,7 @@ import com.example.jetpackcomposeanimations.presentation.util.randomSampleImageU
 import kotlin.math.roundToInt
 import kotlinx.coroutines.launch
 import androidx.compose.ui.unit.IntOffset  // Import for IntOffset
+import com.example.jetpackcomposeanimations.presentation.listanimation.ImageResizeOnScrollExample
 import com.example.jetpackcomposeanimations.presentation.listanimation.ResponsiveGrid
 import kotlinx.coroutines.delay
 import org.intellij.lang.annotations.Language
@@ -139,7 +140,7 @@ fun AnimationExamplesScreen() {
         //AnimateBackgroundColor()
        //AnimateTextColor()
         //InfinitelyRepeatable()
-       InfinitelyRepeatableGradientColors()
+       //InfinitelyRepeatableGradientColors()
 
     //***** Shape animations with size or padding  *******
         //HideAndShowDiagonally()
@@ -206,6 +207,7 @@ fun AnimationExamplesScreen() {
         )*/
 
         //ResponsiveGrid()            //According to screen size
+        ImageResizeOnScrollExample()
     }
 }
 
