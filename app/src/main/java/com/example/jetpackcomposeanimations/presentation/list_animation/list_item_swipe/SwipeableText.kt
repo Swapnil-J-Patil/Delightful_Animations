@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeanimations.presentation.listanimation
+package com.example.jetpackcomposeanimations.presentation.list_animation.list_item_swipe
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
@@ -39,7 +39,6 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.example.jetpackcomposeanimations.presentation.util.ContactUi
 import androidx.compose.foundation.background
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton

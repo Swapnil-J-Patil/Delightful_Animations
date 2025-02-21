@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeanimations.presentation.listanimation
+package com.example.jetpackcomposeanimations.presentation.list_animation.drag_drop_list
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
@@ -18,7 +18,6 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.jetpackcomposeanimations.presentation.util.rememberDragDropListState
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 

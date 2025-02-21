@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeanimations.presentation.screens
+package com.example.jetpackcomposeanimations.presentation.navigation.shared_transition
 
 import androidx.compose.animation.AnimatedVisibilityScope
 import androidx.compose.animation.ExperimentalSharedTransitionApi

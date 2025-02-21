@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeanimations.presentation.listanimation
+package com.example.jetpackcomposeanimations.presentation.list_animation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box

@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeanimations.presentation.util
+package com.example.jetpackcomposeanimations.presentation.list_animation.list_item_swipe
 
 data class ContactUi(
     val id: Int,
