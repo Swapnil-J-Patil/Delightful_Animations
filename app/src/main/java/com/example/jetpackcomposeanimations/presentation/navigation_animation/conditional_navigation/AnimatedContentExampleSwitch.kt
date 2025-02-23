@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeanimations.presentation.navigation.conditional_navigation
+package com.example.jetpackcomposeanimations.presentation.navigation_animation.conditional_navigation
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.tween

@@ -102,6 +102,9 @@ import com.example.jetpackcomposeanimations.presentation.util.randomSampleImageU
 import kotlin.math.roundToInt
 import kotlinx.coroutines.launch
 import androidx.compose.ui.unit.IntOffset  // Import for IntOffset
+import com.example.jetpackcomposeanimations.presentation.color_animation.AnimateTextColor
+import com.example.jetpackcomposeanimations.presentation.image_animations.RowPhotos
+import com.example.jetpackcomposeanimations.presentation.image_animations.StaggeredPhotos
 import com.example.jetpackcomposeanimations.presentation.list_animation.ImageResizeOnScrollExample
 import com.example.jetpackcomposeanimations.presentation.list_animation.list_item_swipe.SwipeableTextAnimation
 import kotlinx.coroutines.delay
@@ -119,7 +122,7 @@ fun AnimationExamplesScreen() {
     ) {
             //************************** Color Change Animations **************************
             // AnimateBackgroundColor()
-            // AnimateTextColor()
+             //AnimateTextColor()
             // InfinitelyRepeatable()
             // InfinitelyRepeatableGradientColors()
 
@@ -168,5 +171,9 @@ fun AnimationExamplesScreen() {
             // ResponsiveGrid()               // Adapts based on screen size
             // ImageResizeOnScrollExample()   // Image resizes dynamically on scroll
             // DragDropList(items = ReorderItem, onMove = { fromIndex, toIndex -> ReorderItem.move(fromIndex, toIndex) })
+
+            //************************** Image Animations **************************
+            RowPhotos()
+            //StaggeredPhotos()
     }
 }
