@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeanimations.presentation.pager
+package com.example.jetpackcomposeanimations.presentation.pager_animation
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi

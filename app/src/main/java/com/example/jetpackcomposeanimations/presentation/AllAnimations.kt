@@ -9,7 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jetpackcomposeanimations.presentation.card_animations.DynamicCardListComponent
+import com.example.jetpackcomposeanimations.presentation.flow_layout_animation.FlowLayoutAnimation
 
 @Preview
 @Composable
@@ -78,7 +78,10 @@ fun AnimationExamplesScreen() {
             // ImageResizeOnScrollExample()   // Image resizes dynamically on scroll
             // DragDropList(items = ReorderItem, onMove = { fromIndex, toIndex -> ReorderItem.move(fromIndex, toIndex) })
             // ListAnimationWithFloatingButton(menuItems = list, onMenuItemClick = { item -> } )
-                DynamicCardListComponent(modifier = Modifier)
+            // FlowLayoutAnimation()
+
+            //************************** List Animations **************************
+            //DynamicCardListComponent(modifier = Modifier)
 
 
         //************************** Image Animations **************************
