@@ -105,6 +105,7 @@ import androidx.compose.ui.unit.IntOffset  // Import for IntOffset
 import com.example.jetpackcomposeanimations.presentation.color_animation.AnimateTextColor
 import com.example.jetpackcomposeanimations.presentation.image_animations.RowPhotos
 import com.example.jetpackcomposeanimations.presentation.image_animations.StaggeredPhotos
+import com.example.jetpackcomposeanimations.presentation.image_animations.shared_transition_image.DemonSlayerPhotoGallery
 import com.example.jetpackcomposeanimations.presentation.list_animation.ImageResizeOnScrollExample
 import com.example.jetpackcomposeanimations.presentation.list_animation.list_item_swipe.SwipeableTextAnimation
 import kotlinx.coroutines.delay
@@ -173,7 +174,8 @@ fun AnimationExamplesScreen() {
             // DragDropList(items = ReorderItem, onMove = { fromIndex, toIndex -> ReorderItem.move(fromIndex, toIndex) })
 
             //************************** Image Animations **************************
-            RowPhotos()
+            //RowPhotos()
             //StaggeredPhotos()
+            DemonSlayerPhotoGallery()
     }
 }
