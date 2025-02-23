@@ -9,7 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jetpackcomposeanimations.presentation.sidebar_animation.SideBarAnimation
+import com.example.jetpackcomposeanimations.presentation.list_animation.ListAnimationWithFloatingButton
 
 @Preview
 @Composable
@@ -67,13 +67,18 @@ fun AnimationExamplesScreen() {
             // TextWithPhotoBackground(Modifier.padding(top = 45.dp, start = 15.dp, end = 15.dp))
             // TypingAnimation(" Let's Dive Into the Market!", Modifier.padding(top = 45.dp, start = 15.dp, end = 15.dp))
             // TextWithMotion()
-            SideBarAnimation()
+
+            //************************** Sidebar Animations **************************
+            //SideBarAnimation()
+
             //************************** List Animations **************************
+            val list=listOf("Item 1", "Item 2", "Item 3","Item 4", "Item 5", "Item 6","Item 7", "Item 8", "Item 9","Item 10", "Item 11", "Item 12","Item 13", "Item 14", "Item 15",)
             // PagerAnimation()               // Horizontal scrolling with animation
             // ResponsiveGrid()               // Adapts based on screen size
             // ImageResizeOnScrollExample()   // Image resizes dynamically on scroll
             // DragDropList(items = ReorderItem, onMove = { fromIndex, toIndex -> ReorderItem.move(fromIndex, toIndex) })
-
+               ListAnimationWithFloatingButton(menuItems = list, onMenuItemClick = { item -> }
+        )
             //************************** Image Animations **************************
             //RowPhotos()
             //StaggeredPhotos()
