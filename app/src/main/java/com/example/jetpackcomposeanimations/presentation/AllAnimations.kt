@@ -9,6 +9,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.jetpackcomposeanimations.presentation.button_animation.FadeButtonAnimation
+import com.example.jetpackcomposeanimations.presentation.button_animation.RotateButtonAnimation
+import com.example.jetpackcomposeanimations.presentation.button_animation.ScaleButton
+import com.example.jetpackcomposeanimations.presentation.button_animation.ShakeButtonAnimation
 import com.example.jetpackcomposeanimations.presentation.flow_layout_animation.FlowLayoutAnimation
 
 @Preview
@@ -23,7 +27,7 @@ fun AnimationExamplesScreen() {
     ) {
             //************************** Color Change Animations **************************
             // AnimateBackgroundColor()
-             //AnimateTextColor()
+            //AnimateTextColor()
             // InfinitelyRepeatable()
             // InfinitelyRepeatableGradientColors()
 
@@ -36,7 +40,10 @@ fun AnimationExamplesScreen() {
             // TransitionExampleConcurrent()
 
             //************************** Button Animations **************************
-            // AnimateElevation()
+            // ScaleButton()
+            // RotateButtonAnimation()
+            // ShakeButtonAnimation()
+            // FadeButtonAnimation()
 
             //************************** Shape Animations (Translation) **************************
             // AnimateOffset()
@@ -84,7 +91,7 @@ fun AnimationExamplesScreen() {
             //DynamicCardListComponent(modifier = Modifier)
 
 
-        //************************** Image Animations **************************
+            //************************** Image Animations **************************
             //RowPhotos()
             //StaggeredPhotos()
             //DemonSlayerPhotoGallery()
