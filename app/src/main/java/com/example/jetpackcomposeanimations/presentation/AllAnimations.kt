@@ -25,75 +25,92 @@ fun AnimationExamplesScreen() {
         verticalArrangement = Arrangement.Center, // Align content vertically in the center
         horizontalAlignment = Alignment.CenterHorizontally // Align content horizontally in the center
     ) {
-            //************************** Color Change Animations **************************
-            // AnimateBackgroundColor()
-            //AnimateTextColor()
-            // InfinitelyRepeatable()
-            // InfinitelyRepeatableGradientColors()
+        //************************** Color Change Animations **************************
+        // AnimateBackgroundColor()
+        //AnimateTextColor()
+        // InfinitelyRepeatable()
+        // InfinitelyRepeatableGradientColors()
 
-            //************************** Shape Animations (Size or Padding) **************************
-            // HideAndShowDiagonally()
-            // HideSwiftly()
-            // AnimatePadding()
-            // AnimateSizeChange()
-            // AnimateSizeChange_Specs()
-            // TransitionExampleConcurrent()
+        //************************** Shape Animations (Size or Padding) **************************
+        // HideAndShowDiagonally()
+        // HideSwiftly()
+        // AnimatePadding()
+        // AnimateSizeChange()
+        // AnimateSizeChange_Specs()
+        // TransitionExampleConcurrent()
 
-            //************************** Button Animations **************************
-            // ScaleButton()
-            // RotateButtonAnimation()
-            // ShakeButtonAnimation()
-            // FadeButtonAnimation()
+        //************************** Button Animations **************************
+        // ScaleButton()
+        // RotateButtonAnimation()
+        // ShakeButtonAnimation()
+        // FadeButtonAnimation()
 
-            //************************** Shape Animations (Translation) **************************
-            // AnimateOffset()
-            // AnimationLayout()              // Toggled boxes
-            // AnimateAlignment()             // Change the alignment from left to right
-            // SmoothAnimateText()               // For animating infinitely
-            // ControlledSmoothAnimateText()     // For animating once
-            // ConcurrentAnimatable()
-            // SequentialAnimations()              // More than one animation
-            // ConcurrentAnimations()
+        //************************** Shape Animations (Translation) **************************
+        // AnimateOffset()
+        // AnimationLayout()              // Toggled boxes
+        // AnimateAlignment()             // Change the alignment from left to right
+        // SmoothAnimateText()               // For animating infinitely
+        // ControlledSmoothAnimateText()     // For animating once
+        // ConcurrentAnimatable()
+        // SequentialAnimations()              // More than one animation
+        // ConcurrentAnimations()
 
-            //************************** Screen Navigation Animations **************************
-            // To open details screen on click of the list item with animation
-            // AnimateBetweenComposableDestinations()
-            // AnimatedContentExampleSwitch()      // Loading - Loaded - Error
+        //************************** Screen Navigation Animations **************************
+        // To open details screen on click of the list item with animation
+        // AnimateBetweenComposableDestinations()
+        // AnimatedContentExampleSwitch()      // Loading - Loaded - Error
 
-            //************************** Text Animations **************************
-            val text = "Compose provides convenient APIs that allow you to solve for many common animation use cases. This section demonstrates how you can animate common properties of a composable."
-            // TextExpandAnimation(text)      // Expanding text animation
-            // RevealingTextOnclick()         // Reveals completely new text on click
-            // SwipeableTextAnimation()       // Swiping text animation
-            // AnimatedCounterScreen()        // Counter top-down animation
-            // AnimatedCounterDownUP()        // Counter bottom-up animation
-            // AnimatedCounterSimple()        // Counter blink animation
-            // AnimatedVisibilitySample()
-            // TextVisibilityAnimation(AnnotatedString("Click me!"))
-            // AnimatedVisibilityMutable()     // To track visibility
-            // TextWithPhotoBackground(Modifier.padding(top = 45.dp, start = 15.dp, end = 15.dp))
-            // TypingAnimation(" Let's Dive Into the Market!", Modifier.padding(top = 45.dp, start = 15.dp, end = 15.dp))
-            // TextWithMotion()
+        //************************** Text Animations **************************
+        val text =
+            "Compose provides convenient APIs that allow you to solve for many common animation use cases. This section demonstrates how you can animate common properties of a composable."
+        // TextExpandAnimation(text)      // Expanding text animation
+        // RevealingTextOnclick()         // Reveals completely new text on click
+        // SwipeableTextAnimation()       // Swiping text animation
+        // AnimatedCounterScreen()        // Counter top-down animation
+        // AnimatedCounterDownUP()        // Counter bottom-up animation
+        // AnimatedCounterSimple()        // Counter blink animation
+        // AnimatedVisibilitySample()
+        // TextVisibilityAnimation(AnnotatedString("Click me!"))
+        // AnimatedVisibilityMutable()     // To track visibility
+        // TextWithPhotoBackground(Modifier.padding(top = 45.dp, start = 15.dp, end = 15.dp))
+        // TypingAnimation(" Let's Dive Into the Market!", Modifier.padding(top = 45.dp, start = 15.dp, end = 15.dp))
+        // TextWithMotion()
 
-            //************************** Sidebar Animations **************************
-            //SideBarAnimation()
+        //************************** Sidebar Animations **************************
+        //SideBarAnimation()
 
-            //************************** List Animations **************************
-            val list=listOf("Item 1", "Item 2", "Item 3","Item 4", "Item 5", "Item 6","Item 7", "Item 8", "Item 9","Item 10", "Item 11", "Item 12","Item 13", "Item 14", "Item 15",)
-            // PagerAnimation()               // Horizontal scrolling with animation
-            // ResponsiveGrid()               // Adapts based on screen size
-            // ImageResizeOnScrollExample()   // Image resizes dynamically on scroll
-            // DragDropList(items = ReorderItem, onMove = { fromIndex, toIndex -> ReorderItem.move(fromIndex, toIndex) })
-            // ListAnimationWithFloatingButton(menuItems = list, onMenuItemClick = { item -> } )
-            // FlowLayoutAnimation()
+        //************************** List Animations **************************
+        val list = listOf(
+            "Item 1",
+            "Item 2",
+            "Item 3",
+            "Item 4",
+            "Item 5",
+            "Item 6",
+            "Item 7",
+            "Item 8",
+            "Item 9",
+            "Item 10",
+            "Item 11",
+            "Item 12",
+            "Item 13",
+            "Item 14",
+            "Item 15",
+        )
+        // PagerAnimation()               // Horizontal scrolling with animation
+        // ResponsiveGrid()               // Adapts based on screen size
+        // ImageResizeOnScrollExample()   // Image resizes dynamically on scroll
+        // DragDropList(items = ReorderItem, onMove = { fromIndex, toIndex -> ReorderItem.move(fromIndex, toIndex) })
+        // ListAnimationWithFloatingButton(menuItems = list, onMenuItemClick = { item -> } )
+        // FlowLayoutAnimation()
 
-            //************************** List Animations **************************
-            //DynamicCardListComponent(modifier = Modifier)
+        //************************** List Animations **************************
+        //DynamicCardListComponent(modifier = Modifier)
 
 
-            //************************** Image Animations **************************
-            //RowPhotos()
-            //StaggeredPhotos()
-            //DemonSlayerPhotoGallery()
+        //************************** Image Animations **************************
+        //RowPhotos()
+        //StaggeredPhotos()
+        //DemonSlayerPhotoGallery()
     }
 }
