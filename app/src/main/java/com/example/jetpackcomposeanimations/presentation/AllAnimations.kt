@@ -62,7 +62,7 @@ fun AnimationExamplesScreen() {
 
         //************************** Text Animations **************************
         val text =
-            "Compose provides convenient APIs that allow you to solve for many common animation use cases. This section demonstrates how you can animate common properties of a composable."
+            "Compose provides convenient APIs that allow you to solve for many common animation use cases. This section demonstrates how you can animate common properties of a composable!!"
         // TextExpandAnimation(text)      // Expanding text animation
         // RevealingTextOnclick()         // Reveals completely new text on click
         // SwipeableTextAnimation()       // Swiping text animation
