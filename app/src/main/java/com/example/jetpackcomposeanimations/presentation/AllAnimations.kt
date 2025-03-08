@@ -14,6 +14,7 @@ import com.example.jetpackcomposeanimations.presentation.button_animation.Rotate
 import com.example.jetpackcomposeanimations.presentation.button_animation.ScaleButton
 import com.example.jetpackcomposeanimations.presentation.button_animation.ShakeButtonAnimation
 import com.example.jetpackcomposeanimations.presentation.flow_layout_animation.FlowLayoutAnimation
+import com.example.jetpackcomposeanimations.presentation.text_animation.TextListAnimation
 
 @Preview
 @Composable
@@ -75,6 +76,7 @@ fun AnimationExamplesScreen() {
         // TextWithPhotoBackground(Modifier.padding(top = 45.dp, start = 15.dp, end = 15.dp))
         // TypingAnimation(" Let's Dive Into the Market!", Modifier.padding(top = 45.dp, start = 15.dp, end = 15.dp))
         // TextWithMotion()
+        TextListAnimation()
 
         //************************** Sidebar Animations **************************
         //SideBarAnimation()
