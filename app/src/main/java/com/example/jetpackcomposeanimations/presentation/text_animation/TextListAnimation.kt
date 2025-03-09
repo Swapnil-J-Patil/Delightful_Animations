@@ -34,10 +34,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import com.example.jetpackcomposeanimations.presentation.ui.theme.Pink40
 import com.example.jetpackcomposeanimations.presentation.ui.theme.Poppins
 import com.example.jetpackcomposeanimations.presentation.ui.theme.colorBlue
 import com.example.jetpackcomposeanimations.presentation.ui.theme.colorGreen
+import com.example.jetpackcomposeanimations.presentation.ui.theme.gold
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
@@ -129,7 +129,7 @@ fun TextListAnimation(modifier: Modifier = Modifier) {
                 ) {
                     Text(
                         text = description,
-                        color = Pink40,
+                        color = gold,
                         style = MaterialTheme.typography.bodyLarge,
                         fontFamily = Poppins,
                         modifier = Modifier.padding(top = 4.dp)
