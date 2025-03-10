@@ -13,6 +13,7 @@ import com.example.jetpackcomposeanimations.presentation.button_animation.FadeBu
 import com.example.jetpackcomposeanimations.presentation.button_animation.RotateButtonAnimation
 import com.example.jetpackcomposeanimations.presentation.button_animation.ScaleButton
 import com.example.jetpackcomposeanimations.presentation.button_animation.ShakeButtonAnimation
+import com.example.jetpackcomposeanimations.presentation.custom_toast_animation.CustomToast
 import com.example.jetpackcomposeanimations.presentation.flow_layout_animation.FlowLayoutAnimation
 import com.example.jetpackcomposeanimations.presentation.text_animation.AnimatedText
 import com.example.jetpackcomposeanimations.presentation.text_animation.TextListAnimation
@@ -78,7 +79,8 @@ fun AnimationExamplesScreen() {
         // TypingAnimation(" Let's Dive Into the Market!", Modifier.padding(top = 45.dp, start = 15.dp, end = 15.dp))
         // TextWithMotion()
         // TextListAnimation()
-        AnimatedText()
+        // AnimatedText()
+        // CustomToast()
 
         //************************** Sidebar Animations **************************
         //SideBarAnimation()

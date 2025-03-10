@@ -13,3 +13,8 @@ val YellowAccent = Color(0xFFFFCA59)
 val darkGreen = Color(0xFF095C0C)
 val colorGreen = Color(0xFF53D9A1)
 val colorBlue = Color(0xFF4FC3F7)
+
+val green = Color(0xFF1DB94F)
+val blue = Color(0xFF3274F1)
+val orange = Color(0xFFF46411)
+val red = Color(0xFFEA383B)
