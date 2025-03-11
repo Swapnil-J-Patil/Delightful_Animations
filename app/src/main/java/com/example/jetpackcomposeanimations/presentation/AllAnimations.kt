@@ -13,6 +13,8 @@ import com.example.jetpackcomposeanimations.presentation.button_animation.FadeBu
 import com.example.jetpackcomposeanimations.presentation.button_animation.RotateButtonAnimation
 import com.example.jetpackcomposeanimations.presentation.button_animation.ScaleButton
 import com.example.jetpackcomposeanimations.presentation.button_animation.ShakeButtonAnimation
+import com.example.jetpackcomposeanimations.presentation.card_animations.CardStackScreen
+import com.example.jetpackcomposeanimations.presentation.card_animations.DynamicCardListComponent
 import com.example.jetpackcomposeanimations.presentation.custom_toast_animation.CustomToast
 import com.example.jetpackcomposeanimations.presentation.flow_layout_animation.FlowLayoutAnimation
 import com.example.jetpackcomposeanimations.presentation.text_animation.AnimatedText
@@ -34,6 +36,9 @@ fun AnimationExamplesScreen() {
         // InfinitelyRepeatable()
         // InfinitelyRepeatableGradientColors()
 
+        //************************** Card Animations **************************
+        //DynamicCardListComponent()
+        CardStackScreen()
         //************************** Shape Animations (Size or Padding) **************************
         // HideAndShowDiagonally()
         // HideSwiftly()
