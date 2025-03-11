@@ -14,6 +14,7 @@ import com.example.jetpackcomposeanimations.presentation.button_animation.Rotate
 import com.example.jetpackcomposeanimations.presentation.button_animation.ScaleButton
 import com.example.jetpackcomposeanimations.presentation.button_animation.ShakeButtonAnimation
 import com.example.jetpackcomposeanimations.presentation.card_animations.CardStackScreen
+import com.example.jetpackcomposeanimations.presentation.card_animations.CardFlipAnimation
 import com.example.jetpackcomposeanimations.presentation.card_animations.DynamicCardListComponent
 import com.example.jetpackcomposeanimations.presentation.custom_toast_animation.CustomToast
 import com.example.jetpackcomposeanimations.presentation.flow_layout_animation.FlowLayoutAnimation
@@ -38,7 +39,9 @@ fun AnimationExamplesScreen() {
 
         //************************** Card Animations **************************
         //DynamicCardListComponent()
-        CardStackScreen()
+        //CardStackScreen()
+        //CardFlipAnimation()
+
         //************************** Shape Animations (Size or Padding) **************************
         // HideAndShowDiagonally()
         // HideSwiftly()
