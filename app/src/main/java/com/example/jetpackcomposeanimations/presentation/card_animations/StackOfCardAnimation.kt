@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 import kotlin.math.abs
 
 @Composable
-fun CardStackScreen() {
+fun StackOfCardAnimation() {
     val scope = rememberCoroutineScope()
     val animatableOffset = remember { Animatable(0f) }
     val animatableScale = remember { Animatable(1f) }
