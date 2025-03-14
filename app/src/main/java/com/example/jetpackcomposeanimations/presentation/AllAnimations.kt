@@ -20,6 +20,7 @@ import com.example.jetpackcomposeanimations.presentation.card_animations.Flippin
 import com.example.jetpackcomposeanimations.presentation.custom_toast_animation.CustomToast
 import com.example.jetpackcomposeanimations.presentation.flow_layout_animation.FlowLayoutAnimation
 import com.example.jetpackcomposeanimations.presentation.text_animation.AnimatedText
+import com.example.jetpackcomposeanimations.presentation.text_animation.SplitTextReveal
 import com.example.jetpackcomposeanimations.presentation.text_animation.TextListAnimation
 
 @Preview
@@ -42,7 +43,8 @@ fun AnimationExamplesScreen() {
         //DynamicCardListComponent()
         //StackOfCardAnimation
         //CardFlipAnimation()
-        FlippingCardAnimation()
+        //FlippingCardAnimation()
+
         //************************** Shape Animations (Size or Padding) **************************
         // HideAndShowDiagonally()
         // HideSwiftly()
@@ -90,6 +92,7 @@ fun AnimationExamplesScreen() {
         // TextListAnimation()
         // AnimatedText()
         // CustomToast()
+        SplitTextReveal()
 
         //************************** Sidebar Animations **************************
         //SideBarAnimation()
