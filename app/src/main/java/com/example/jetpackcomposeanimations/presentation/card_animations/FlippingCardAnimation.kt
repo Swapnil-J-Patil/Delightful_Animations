@@ -38,8 +38,9 @@ fun FlippingCardAnimation() {
 
     Box(
         modifier = Modifier
-            .fillMaxSize(),
-        contentAlignment = Alignment.Center
+            .fillMaxSize()
+            .padding(bottom=10.dp),
+        contentAlignment = Alignment.BottomCenter
     ) {
         for (i in 3 downTo 0) {
             CardContainer(

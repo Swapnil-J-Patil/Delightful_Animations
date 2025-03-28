@@ -19,6 +19,8 @@ import com.example.jetpackcomposeanimations.presentation.card_animations.Dynamic
 import com.example.jetpackcomposeanimations.presentation.card_animations.FlippingCardAnimation
 import com.example.jetpackcomposeanimations.presentation.custom_toast_animation.CustomToast
 import com.example.jetpackcomposeanimations.presentation.flow_layout_animation.FlowLayoutAnimation
+import com.example.jetpackcomposeanimations.presentation.shape_animation.size_padding_animation.SquishyToggleScreen
+import com.example.jetpackcomposeanimations.presentation.shape_animation.size_padding_animation.SquishyToggleSwitch
 import com.example.jetpackcomposeanimations.presentation.text_animation.AnimatedText
 import com.example.jetpackcomposeanimations.presentation.text_animation.SplitTextReveal
 import com.example.jetpackcomposeanimations.presentation.text_animation.TextListAnimation
@@ -68,6 +70,7 @@ fun AnimationExamplesScreen() {
         // ConcurrentAnimatable()
         // SequentialAnimations()              // More than one animation
         // ConcurrentAnimations()
+        SquishyToggleScreen()
 
         //************************** Screen Navigation Animations **************************
         // To open details screen on click of the list item with animation
@@ -92,7 +95,7 @@ fun AnimationExamplesScreen() {
         // TextListAnimation()
         // AnimatedText()
         // CustomToast()
-        SplitTextReveal()
+        //SplitTextReveal()
 
         //************************** Sidebar Animations **************************
         //SideBarAnimation()
