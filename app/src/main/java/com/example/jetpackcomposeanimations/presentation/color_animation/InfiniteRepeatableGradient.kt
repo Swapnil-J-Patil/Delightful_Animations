@@ -21,13 +21,10 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-val Coral = Color(0xFFF3A397)
-val LightYellow = Color(0xFFF8EE94)
-@Preview
 @Composable
 fun InfinitelyRepeatableGradientColors() {
     // Gradient colors
-    val brushColors = listOf(Coral, LightYellow)
+    val brushColors = listOf(Color(0xFF23af92), Color(0xFF0E5C4C))
 
     // Animation state
     val infiniteTransition = rememberInfiniteTransition(label = "background")

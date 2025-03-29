@@ -15,7 +15,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 
 @OptIn(ExperimentalSharedTransitionApi::class)
-@Preview
 @Composable
 fun AnimateBetweenComposableDestinations() {
     Surface(

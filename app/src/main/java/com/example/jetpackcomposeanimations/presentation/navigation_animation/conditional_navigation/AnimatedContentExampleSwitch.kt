@@ -16,7 +16,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.jetpackcomposeanimations.presentation.util.UiState
 
-@Preview
 @Composable
 fun AnimatedContentExampleSwitch() {
     // [START android_compose_animation_cookbook_animated_content]

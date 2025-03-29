@@ -26,7 +26,6 @@ import com.example.jetpackcomposeanimations.presentation.ui.theme.colorBlue
 import com.example.jetpackcomposeanimations.presentation.ui.theme.colorGreen
 import kotlin.math.roundToInt
 
-@Preview
 @Composable
 fun AnimateOffset() {
     Box(

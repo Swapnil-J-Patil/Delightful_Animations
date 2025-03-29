@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeanimations.presentation.shape_animation.translation
+package com.example.jetpackcomposeanimations.presentation.text_animation
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
