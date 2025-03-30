@@ -18,7 +18,7 @@ A systematically organized collection of cool animations for buttons, cards, ima
 
 ## 🎬 Live Demos  
 
-**Card Animations**
+**Card Animations**<br>
 <table>
   <tr>
     <th>Card Flip Animation</th>
@@ -27,9 +27,9 @@ A systematically organized collection of cool animations for buttons, cards, ima
   </tr>
 
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/0dba3a9c-c1d2-4e97-af05-9fa2eb9d4894" alt="Card Animation" width="250"></td>
-    <td><img src="https://github.com/user-attachments/assets/d0df4817-d845-44e2-887c-b25db3510db4" alt="Card Animation" width="250"></td>
-    <td><img src="https://github.com/user-attachments/assets/1087721f-06a6-44f1-ad52-28bf587ba604" alt="Card Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/f2acd98f-09f7-4942-a2c0-52420c0aadd3" alt="Card Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/dfffc1ea-64b5-448a-bb29-1084d6afc233" alt="Card Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/a036cbd5-90d4-4f6b-b08f-2bc17599cf29" alt="Card Animation" width="250"></td>
   </tr>
   <tr>
     <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/card_animations/CardFlipAnimation.kt">🔗 Source Code</a></td>
@@ -37,6 +37,7 @@ A systematically organized collection of cool animations for buttons, cards, ima
     <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/card_animations/DynamicCardListAnimation.kt">🔗 Source Code</a></td>
   </tr>
 </table>
+
 
 ## 📂 Organized Structure
 
