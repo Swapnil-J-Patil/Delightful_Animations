@@ -15,6 +15,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.presentation.card_animations.DynamicCardListComponent
+import com.example.jetpackcomposeanimations.presentation.card_animations.FlippingCardAnimation
 import com.example.jetpackcomposeanimations.presentation.flow_layout_animation.FlowLayoutAnimation
 import com.example.jetpackcomposeanimations.presentation.image_animations.RowPhotos
 import com.example.jetpackcomposeanimations.presentation.image_animations.StaggeredPhotos
@@ -24,6 +25,7 @@ import com.example.jetpackcomposeanimations.presentation.list_animation.ListAnim
 import com.example.jetpackcomposeanimations.presentation.list_animation.ResponsiveGrid
 import com.example.jetpackcomposeanimations.presentation.list_animation.drag_drop_list.DragDropList
 import com.example.jetpackcomposeanimations.presentation.list_animation.list_item_swipe.SwipeableTextAnimation
+import com.example.jetpackcomposeanimations.presentation.list_animation.scaling_item_list.ScalingListItemAnimation
 import com.example.jetpackcomposeanimations.presentation.navigation_animation.conditional_navigation.AnimatedContentExampleSwitch
 import com.example.jetpackcomposeanimations.presentation.navigation_animation.shared_transition_screen.AnimateBetweenComposableDestinations
 import com.example.jetpackcomposeanimations.presentation.pager_animation.PagerAnimation
@@ -140,6 +142,7 @@ fun AnimationExamplesScreen() {
         }
         var draggedItem by remember { mutableStateOf<String?>(null) }
 
+        ScalingListItemAnimation()
         //DemonSlayerPhotoGallery()
         //SwipeableTextAnimation()       // Swiping text animation
         // PagerAnimation()               // Horizontal scrolling with animation
