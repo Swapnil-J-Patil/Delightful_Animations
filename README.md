@@ -67,19 +67,19 @@ A systematically organized collection of cool animations for buttons, cards, ima
 <table>
   <tr>
     <th>Photo Gallery List Animation</th>
-    <th>Credit List Item Swipe Animation</th>
     <th>Responsive List Grid</th>
+    <th>Nested Scrolling</th>
   </tr>
 
   <tr>
     <td><img src="https://github.com/user-attachments/assets/c25eb493-0765-4523-b6a1-c5125698ff06" alt="Card Animation" width="250"></td>
-    <td><img src="https://github.com/user-attachments/assets/7820efde-2651-4383-ab17-a170e3b482bd" alt="Card Animation" width="250"></td>
     <td><img src="https://github.com/user-attachments/assets/ab4617f7-8bab-4c82-a176-c003e59af946" alt="Card Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/db0c0c9f-f7dd-4603-8455-087604b0d0b8" alt="Card Animation" width="250"></td>
   </tr>
   <tr>
     <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/image_animations/shared_transition_image/PhotoGallery.kt">🔗 Source Code</a></td>
-    <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/list_animation/list_item_swipe/SwipeableText.kt">🔗Source Code</a></td>
-    <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/list_animation/LazyGridResponsive.kt">🔗 Source Code</a></td>
+        <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/list_animation/LazyGridResponsive.kt">🔗 Source Code</a></td>
+    <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/list_animation/NestedScrolling.kt">🔗Source Code</a></td>
   </tr>
 </table>
 ## 📂 Organized Structure
