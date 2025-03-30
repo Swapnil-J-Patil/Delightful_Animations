@@ -2,20 +2,6 @@
 🎨 **Welcome to the Ultimate Animations Repository!**<br>
 A systematically organized collection of cool animations for buttons, cards, images, and many more—perfect for enhancing your apps and projects.
 
-## ✨ Features
-✅ Button Animations – Click effects, ripples, transformations.
-✅ Card Animations – Hover effects, flipping, scaling, and more.
-✅ Color Animations – Smooth color transitions and effects.
-✅ Custom Toast Animations – Unique toast message styles with animations.
-✅ Flow Layout Animations – Dynamic flow-based UI animations.
-✅ Image Animations – Zoom-in/out, fade transitions, parallax effects.
-✅ List Animations – Item entry, exit, and reordering animations.
-✅ Navigation Animations – Smooth page transitions and interactions.
-✅ Pager Animations – Swipe-based page transitions.
-✅ Shape Animations – Morphing, scaling, and shape transformations.
-✅ Sidebar Animations – Expanding and collapsing sidebar effects.
-✅ Text Animations – Typewriter, wave, glitch effects, and more.
-
 ## 🎬 Live Demos  
 
 **Card Animations**<br>
@@ -38,7 +24,64 @@ A systematically organized collection of cool animations for buttons, cards, ima
   </tr>
 </table>
 
+**Image Animations**<br>
+<table>
+  <tr>
+    <th>Photo Row</th>
+    <th>Staggered Photos</th>
+    <th>Image Carousel</th>
+  </tr>
 
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/9e046f57-1813-42ee-a5e2-63b2043c0ff1" alt="Card Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/e4cc3750-754d-4629-9491-2695af728bce" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/3b01375e-c2d3-41ef-8aca-fe723b3e47d8" width="250"></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/image_animations/ImageAnimations.kt">🔗 Source Code</a></td>
+    <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/image_animations/StaggeredImageAnimation.kt">🔗 Source Code</a></td>
+     <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/image_animations/pager_animation/PagerAnimation.kt">🔗 Source Code</a></td>
+  </tr>
+</table>
+
+**List Animations**<br>
+<table>
+  <tr>
+    <th>List Item scale</th>
+    <th>Credit List Item Swipe Animation</th>
+    <th>List reorder animation</th>
+  </tr>
+
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/1d6a94ae-5b7e-46f9-9fb8-986a01991915" alt="Card Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/7820efde-2651-4383-ab17-a170e3b482bd" alt="Card Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/76bab472-d901-467e-b98d-53f931f088f9" alt="Card Animation" width="250"></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/list_animation/scaling_item_list/ScalingListItemAnimation.kt">🔗 Source Code</a></td>
+    <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/list_animation/list_item_swipe/SwipeableText.kt">🔗Source Code</a></td>
+    <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/list_animation/drag_drop_list/DragDropList.kt">🔗 Source Code</a></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Photo Gallery List Animation</th>
+    <th>Credit List Item Swipe Animation</th>
+    <th>Responsive List Grid</th>
+  </tr>
+
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/c25eb493-0765-4523-b6a1-c5125698ff06" alt="Card Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/7820efde-2651-4383-ab17-a170e3b482bd" alt="Card Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/ab4617f7-8bab-4c82-a176-c003e59af946" alt="Card Animation" width="250"></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/image_animations/shared_transition_image/PhotoGallery.kt">🔗 Source Code</a></td>
+    <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/list_animation/list_item_swipe/SwipeableText.kt">🔗Source Code</a></td>
+    <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/list_animation/LazyGridResponsive.kt">🔗 Source Code</a></td>
+  </tr>
+</table>
 ## 📂 Organized Structure
 
 Animations are categorized for easy access, making it simple to find the effect you need.
