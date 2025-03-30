@@ -33,7 +33,7 @@ A systematically organized collection of cool animations for buttons, cards, ima
   </tr>
   <tr>
     <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/card_animations/CardFlipAnimation.kt">🔗 Source Code</a></td>
-    <td><a href="[https://github.com/your-repo/button_animation](https://github.com/Swapnil-J-Patil/CardFlipAnimation)">🔗 Repo Link</a></td>
+    <td><a href="https://github.com/Swapnil-J-Patil/CardFlipAnimation">🔗 Repo Link</a></td>
     <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/card_animations/DynamicCardListAnimation.kt">🔗 Source Code</a></td>
   </tr>
 </table>
