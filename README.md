@@ -83,6 +83,25 @@ A systematically organized collection of cool animations for buttons, cards, ima
   </tr>
 </table>
 
+**Button Animations**<br>
+<table>
+  <tr>
+    <th>Scaling Button</th>
+    <th>Rotating Button</th>
+    <th>Shaking Button</th>
+  </tr>
+
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/ff174129-05b1-465e-a4f0-3421ea4c3f92" alt="Card Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/e4d105f6-2e3b-4a65-b022-217605564fa3" alt="Card Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/98c74af2-a11b-43c3-abcc-0fae695e911f" alt="Card Animation" width="250"></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/Swapnil-J-Patil/Jetpack_Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/button_animation/ScaleButtonAnimation.kt">🔗 Source Code</a></td>
+        <td><a href="https://github.com/Swapnil-J-Patil/Jetpack_Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/button_animation/RotateButtonAnimation.kt">🔗 Source Code</a></td>
+    <td><a href="https://github.com/Swapnil-J-Patil/Jetpack_Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/button_animation/ShakeButtonAnimation.kt">🔗Source Code</a></td>
+  </tr>
+</table>
 ## 📂 Organized Structure
 
 Animations are categorized for easy access, making it simple to find the effect you need.
