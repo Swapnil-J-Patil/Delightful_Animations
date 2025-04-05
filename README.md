@@ -102,6 +102,7 @@ A systematically organized collection of cool animations for buttons, cards, ima
     <td><a href="https://github.com/Swapnil-J-Patil/Jetpack_Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/button_animation/ShakeButtonAnimation.kt">🔗Source Code</a></td>
   </tr>
 </table>
+
 ## 📂 Organized Structure
 
 Animations are categorized for easy access, making it simple to find the effect you need.
