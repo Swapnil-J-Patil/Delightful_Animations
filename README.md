@@ -123,6 +123,26 @@ A systematically organized collection of cool animations for buttons, cards, ima
   </tr>
 </table>
 
+**Text Animations**<br>
+<table>
+  <tr>
+    <th>Typing Animation</th>
+    <th>Infinite Rotation</th>
+    <th>Flip Text Animation </th>
+  </tr>
+
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/d8fafe6f-f509-4247-b730-e4123ca620e5" alt="Color Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/31833b18-4ad6-4c5c-b361-531366657f27" alt="Color Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/ee7ef0b9-a8f8-4ec5-939a-c6f9b1360c20" alt="Color Animation" width="250"></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/Swapnil-J-Patil/Jetpack_Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/text_animation/TypingAnimation.kt">🔗 Source Code</a></td>
+        <td><a href="https://github.com/Swapnil-J-Patil/Jetpack_Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/text_animation/TextWithMotion.kt">🔗 Source Code</a></td>
+    <td><a href="https://github.com/Swapnil-J-Patil/Jetpack_Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/text_animation/TextListAnimation.kt">🔗Source Code</a></td>
+  </tr>
+</table>
+
 ## 📂 Organized Structure
 
 Animations are categorized for easy access, making it simple to find the effect you need.
