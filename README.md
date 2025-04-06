@@ -103,6 +103,26 @@ A systematically organized collection of cool animations for buttons, cards, ima
   </tr>
 </table>
 
+**Color Animations**<br>
+<table>
+  <tr>
+    <th>Animated Color Change</th>
+    <th>Infinite Repeat Gradient</th>
+    <th> Animated Text Color</th>
+  </tr>
+
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/41b4fbdc-93e8-4de4-84f3-b08d8d4fad6a" alt="Color Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/24473d96-5b27-43d9-a01b-86b3c32f37dc" alt="Color Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/dd2a9de2-728e-40d9-b0b5-a2271a56869b" alt="Color Animation" width="250"></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/Swapnil-J-Patil/Jetpack_Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/color_animation/AnimateBackgroundColor.kt">🔗 Source Code</a></td>
+        <td><a href="https://github.com/Swapnil-J-Patil/Jetpack_Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/color_animation/InfiniteRepeatableGradient.kt">🔗 Source Code</a></td>
+    <td><a href="https://github.com/Swapnil-J-Patil/Jetpack_Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/color_animation/AnimateTextColor.kt">🔗Source Code</a></td>
+  </tr>
+</table>
+
 ## 📂 Organized Structure
 
 Animations are categorized for easy access, making it simple to find the effect you need.
