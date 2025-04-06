@@ -15,6 +15,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.presentation.card_animations.DynamicCardListComponent
+import com.example.jetpackcomposeanimations.presentation.card_animations.FlipCardAnimation
 import com.example.jetpackcomposeanimations.presentation.card_animations.FlippingCardAnimation
 import com.example.jetpackcomposeanimations.presentation.flow_layout_animation.FlowLayoutAnimation
 import com.example.jetpackcomposeanimations.presentation.image_animations.RowPhotos
@@ -67,6 +68,7 @@ fun AnimationExamplesScreen() {
         //StackOfCardAnimation()
         //CardFlipAnimation()
         //FlippingCardAnimation()
+        FlipCardAnimation()
 
         //************************** Shape Animations (Size or Padding) **************************
         //HideAndShowDiagonally()
@@ -142,7 +144,7 @@ fun AnimationExamplesScreen() {
         }
         var draggedItem by remember { mutableStateOf<String?>(null) }
 
-        ScalingListItemAnimation()
+        //ScalingListItemAnimation()
         //DemonSlayerPhotoGallery()
         //SwipeableTextAnimation()       // Swiping text animation
         // PagerAnimation()               // Horizontal scrolling with animation
