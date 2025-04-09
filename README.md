@@ -168,6 +168,10 @@ A systematically organized collection of cool animations for buttons, cards, ima
 
 Animations are categorized for easy access, making it simple to find the effect you need.
 
+## Third-Party Code Attributions
+
+For details on third-party content, see [ATTRIBUTIONS.md](./ATTRIBUTIONS.md).
+
 ## 💡 Contribution
 
 Got an awesome animation to share? Feel free to contribute! Fork the repo, add your animation, and submit a pull request.
