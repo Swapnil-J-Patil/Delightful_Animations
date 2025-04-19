@@ -33,3 +33,9 @@ The following repository is licensed under the [Apache License, Version 2.0](htt
 
 - [SharedElementTransitionExample](https://github.com/ardakazanci/SharedElementTransitionExample)
 
+## 📄 Not Under Any License but used or modified in this project
+
+- [ComposeAnimations](https://github.com/antonshilov/ComposeAnimations)
+
+
+
