@@ -1,6 +1,7 @@
 package com.example.jetpackcomposeanimations.presentation.shape_animation.size_padding_animation
 
 import androidx.compose.animation.animateColor
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -19,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -37,15 +39,16 @@ fun SquishyToggleSwitch(
     val scope = rememberCoroutineScope()
 
     val transition = updateTransition(targetState = isToggled, label = "Switch Transition")
-    val trackColor by transition.animateColor(
-        transitionSpec = { tween(durationMillis = 1200) },
-        label = "Track Color"
-    ) { checked -> if (checked) color else Color.Gray }
 
     // Animatable properties
     val thumbPosition = remember { Animatable(0f) }
     val squishX = remember { Animatable(1f) }
     val squishY = remember { Animatable(1f) }
+    val trackColor by animateColorAsState(
+        targetValue = lerp(Color.Gray, color, thumbPosition.value),
+        animationSpec = tween(durationMillis = 100),
+        label = "Track Color"
+    )
 
     // Define easing curves for smooth, jelly-like movement
     val stretchEasing = CubicBezierEasing(0.75f, 0f, 1f, 1f)
