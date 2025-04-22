@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun LuckyWheelScreen() {
-    val items = listOf("Apple", "Banana", "Cherry", "Date", "Fig", "Grape", "Kiwi", "Lemon")
+    val items = listOf("$ 50", "$ 150", "$ 20", "$ 1000", "$ 0", "$ 500", "$ 5", "$ 10")
     var result by remember { mutableStateOf("") }
 
     Box(

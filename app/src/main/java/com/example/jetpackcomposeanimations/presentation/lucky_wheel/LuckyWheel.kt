@@ -1,5 +1,6 @@
 package com.example.jetpackcomposeanimations.presentation.lucky_wheel
 
+import android.graphics.Typeface
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
@@ -154,10 +155,12 @@ fun LuckyWheel(
                     drawIntoCanvas { canvas ->
                         val nativeCanvas = canvas.nativeCanvas
                         val paint = android.graphics.Paint().apply {
-                            color = android.graphics.Color.BLACK
+                            color = android.graphics.Color.WHITE
                             textAlign = android.graphics.Paint.Align.CENTER
-                            textSize = 36f
+                            textSize = 65f
                             isAntiAlias = true
+                            typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
+
                         }
 
                         val textAngle = angle + sweepAngle / 2
