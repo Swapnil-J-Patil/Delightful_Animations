@@ -15,14 +15,13 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 
-@Preview
 @Composable
 fun InfinitelyRepeatable() {
     // [START android_compose_animation_infinitely_repeating]
     val infiniteTransition = rememberInfiniteTransition(label = "infinite")
     val color by infiniteTransition.animateColor(
-        initialValue = Color.Green,
-        targetValue = Color.Blue,
+        initialValue = Color(0xFF60DDAD),
+        targetValue = Color(0xFF4285F4),
         animationSpec = infiniteRepeatable(
             animation = tween(2000, easing = LinearEasing),
             repeatMode = RepeatMode.Reverse

@@ -15,11 +15,11 @@ import com.example.jetpackcomposeanimations.R
 @Composable
 fun TextWithPhotoBackground(modifier: Modifier = Modifier) {
     val imageBrush= ShaderBrush(ImageShader(ImageBitmap.imageResource(id = R.drawable.img1)))
-    Text(text = "Jetpack Compose",
+    Text(text = "Hi Devs",
         style = TextStyle(
             brush = imageBrush,
             fontWeight = FontWeight.Bold,
-            fontSize = 36.sp
+            fontSize = 70.sp
         )
     )
 }

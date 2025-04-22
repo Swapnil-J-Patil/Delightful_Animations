@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeanimations.presentation.shape_animation.translation
+package com.example.jetpackcomposeanimations.presentation.text_animation
 
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -16,9 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextMotion
-import androidx.compose.ui.tooling.preview.Preview
 
-@Preview
 @Composable
 fun SmoothAnimateText() {
     // [START android_compose_animation_cookbook_text]

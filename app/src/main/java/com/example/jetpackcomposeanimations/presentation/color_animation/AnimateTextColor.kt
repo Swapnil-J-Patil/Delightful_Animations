@@ -18,10 +18,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-@Preview
 @Composable
 fun AnimateTextColor() {
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center) {
         // [START android_compose_animation_cookbook_text_color]
         val infiniteTransition = rememberInfiniteTransition(label = "infinite transition")
         val animatedColor by infiniteTransition.animateColor(
@@ -32,7 +32,7 @@ fun AnimateTextColor() {
         )
 
         BasicText(
-            text = "Hello Compose",
+            text = "Hello Guys",
             color = {
                 animatedColor
             },

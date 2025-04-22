@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.presentation.ui.theme.colorBlue
 import com.example.jetpackcomposeanimations.presentation.ui.theme.colorGreen
 
-@Preview
 @Composable
 fun AnimationLayout() {
     // [START android_compose_animation_layout_offset]
