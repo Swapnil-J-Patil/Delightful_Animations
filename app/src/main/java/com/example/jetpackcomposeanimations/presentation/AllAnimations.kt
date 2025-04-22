@@ -27,6 +27,7 @@ import com.example.jetpackcomposeanimations.presentation.list_animation.Responsi
 import com.example.jetpackcomposeanimations.presentation.list_animation.drag_drop_list.DragDropList
 import com.example.jetpackcomposeanimations.presentation.list_animation.list_item_swipe.SwipeableTextAnimation
 import com.example.jetpackcomposeanimations.presentation.list_animation.scaling_item_list.ScalingListItemAnimation
+import com.example.jetpackcomposeanimations.presentation.lucky_wheel.LuckyWheelScreen
 import com.example.jetpackcomposeanimations.presentation.navigation_animation.conditional_navigation.AnimatedContentExampleSwitch
 import com.example.jetpackcomposeanimations.presentation.navigation_animation.shared_transition_screen.AnimateBetweenComposableDestinations
 import com.example.jetpackcomposeanimations.presentation.sidebar_animation.SideBarAnimation
@@ -67,7 +68,7 @@ fun AnimationExamplesScreen() {
         //StackOfCardAnimation()
         //CardFlipAnimation()
         //FlippingCardAnimation()
-        FlipCardAnimation()
+        //FlipCardAnimation()
 
         //************************** Shape Animations (Size or Padding) **************************
         //HideAndShowDiagonally()
@@ -164,5 +165,7 @@ fun AnimationExamplesScreen() {
         //************************** Image Animations **************************
         //RowPhotos()
         //StaggeredPhotos()
+
+        LuckyWheelScreen()
     }
 }

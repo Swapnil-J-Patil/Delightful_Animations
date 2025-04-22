@@ -70,27 +70,7 @@ fun LuckyWheel(
         Color(0xFF0E5C4C) to Color(0xFF23af92),
         Color(0xFFFFA500) to Color(0xFFFFFF00), // Orange to Yellow
     )
-    val blurRingModifier = Modifier.drawBehind {
-        val radius = size.minDimension / 2f - 30f
-        val center = Offset(size.width / 2f, size.height / 2f)
 
-        drawIntoCanvas { canvas ->
-            val paint = Paint().asFrameworkPaint().apply {
-                color = android.graphics.Color.argb(100, 255, 255, 255) // white-gray with transparency
-                style = android.graphics.Paint.Style.STROKE
-                strokeWidth = 20f
-                isAntiAlias = true
-                maskFilter = android.graphics.BlurMaskFilter(50f, android.graphics.BlurMaskFilter.Blur.NORMAL)
-            }
-
-            canvas.nativeCanvas.drawCircle(
-                center.x,
-                center.y,
-                radius,
-                paint
-            )
-        }
-    }
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier.aspectRatio(1f)
@@ -125,7 +105,10 @@ fun LuckyWheel(
                         style = android.graphics.Paint.Style.STROKE
                         strokeWidth = 20f
                         isAntiAlias = true
-                        maskFilter = android.graphics.BlurMaskFilter(10f, android.graphics.BlurMaskFilter.Blur.NORMAL)
+                        maskFilter = android.graphics.BlurMaskFilter(
+                            10f,
+                            android.graphics.BlurMaskFilter.Blur.NORMAL
+                        )
                     }
 
 
@@ -136,7 +119,6 @@ fun LuckyWheel(
                         blurPaint
                     )
                 }
-
 
 
             }
@@ -163,62 +145,44 @@ fun LuckyWheel(
                         topLeft = Offset(center.x - radius, center.y - radius),
                         size = Size(radius * 2, radius * 2)
                     )
-                    val innerRadius = radius * 0.90f // Decrease this to shrink the arc inward
-
-                    drawArc(
-                        brush = Brush.linearGradient(
-                            colors = listOf(Color.White, Color.Transparent),
-                            start = Offset(
-                                center.x + innerRadius * cos(Math.toRadians(angle.toDouble())).toFloat(),
-                                center.y + innerRadius * sin(Math.toRadians(angle.toDouble())).toFloat()
-                            ),
-                            end = center
-                        ),
-                        startAngle = angle,
-                        sweepAngle = sweepAngle,
-                        useCenter = true,
-                        topLeft = Offset(center.x - innerRadius, center.y - innerRadius),
-                        size = Size(innerRadius * 2, innerRadius * 2)
-                    )
-
 
                     val angleRad = Math.toRadians((angle + sweepAngle / 2).toDouble())
                     val textOffset = Offset(
                         center.x + (radius * 0.6f * cos(angleRad)).toFloat(),
                         center.y + (radius * 0.6f * sin(angleRad)).toFloat()
                     )
-                    drawContext.canvas.nativeCanvas.drawText(
-                        label,
-                        textOffset.x,
-                        textOffset.y,
-                        android.graphics.Paint().apply {
+                    drawIntoCanvas { canvas ->
+                        val nativeCanvas = canvas.nativeCanvas
+                        val paint = android.graphics.Paint().apply {
                             color = android.graphics.Color.BLACK
                             textAlign = android.graphics.Paint.Align.CENTER
                             textSize = 36f
+                            isAntiAlias = true
                         }
-                    )
-                }
-               /* drawCircle(
-                    color = Color.White.copy(alpha = 0.4f), // 40% opacity
-                    radius = radius - 65,
-                    center = center,
-                    style = Stroke(width = 30f)
-                )*/
-                drawIntoCanvas { canvas ->
-                    val transparentPaint = android.graphics.Paint().apply {
-                        color = Color.Gray.copy(alpha = 0.4f).toArgb() // 40% opacity
-                        style = android.graphics.Paint.Style.STROKE
-                        strokeWidth = 100f
-                        isAntiAlias = true
-                        // Removed maskFilter for no blur
+
+                        val textAngle = angle + sweepAngle / 2
+                        val angleRad = Math.toRadians(textAngle.toDouble())
+
+                        // Text position
+                        val textX = center.x + (radius * 0.6f * cos(angleRad)).toFloat()
+                        val textY = center.y + (radius * 0.6f * sin(angleRad)).toFloat()
+
+                        nativeCanvas.save()
+
+                        // Rotate the canvas around the text's position
+                        nativeCanvas.rotate(textAngle.toFloat(), textX, textY)
+
+                        // Draw upright text
+                        nativeCanvas.drawText(
+                            label,
+                            textX,
+                            textY,
+                            paint
+                        )
+
+                        nativeCanvas.restore()
                     }
 
-                    canvas.nativeCanvas.drawCircle(
-                        center.x,
-                        center.y,
-                        radius,
-                        transparentPaint
-                    )
                 }
             }
         }
@@ -283,4 +247,5 @@ fun LuckyWheel(
         }
     }
 }
+
 
