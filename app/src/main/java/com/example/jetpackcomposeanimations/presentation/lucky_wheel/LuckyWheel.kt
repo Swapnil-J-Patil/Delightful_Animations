@@ -31,6 +31,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -51,6 +52,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.R
 import com.example.jetpackcomposeanimations.presentation.ui.theme.green
+import kotlinx.coroutines.delay
+import java.util.concurrent.TimeUnit
 import kotlin.io.path.Path
 import kotlin.io.path.moveTo
 import kotlin.math.cos
@@ -78,6 +81,18 @@ fun LuckyWheel(
         Color(0xFFFFA500) to Color(0xFFFFFF00), // Orange to Yellow
     )
     val scaleAnim = remember { Animatable(1f) }
+    var isButtonEnabled by remember { mutableStateOf(true) }
+    var countdownTime by remember { mutableStateOf(0L) } // in millis
+    val countdownDisplay by remember(countdownTime) {
+        derivedStateOf {
+            val hours = TimeUnit.MILLISECONDS.toHours(countdownTime)
+            val minutes = TimeUnit.MILLISECONDS.toMinutes(countdownTime) % 60
+            val seconds = TimeUnit.MILLISECONDS.toSeconds(countdownTime) % 60
+            String.format("%02d:%02d:%02d", hours, minutes, seconds)
+        }
+    }
+
+
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier.aspectRatio(1f)
@@ -254,11 +269,21 @@ fun LuckyWheel(
                         val adjustedRotation = (270f - (rotation.value % 360) + 360) % 360
                         val selectedIndex = (adjustedRotation / sweepAngle).toInt() % items.size
                         onSpinEnd(selectedIndex)
+                        // Disable button and start 3-hour countdown
+                        isButtonEnabled = false
+                        countdownTime = 3 * 60 * 60 * 1000L // 3 hours in millis
+
+                        while (countdownTime > 0) {
+                            delay(1000L)
+                            countdownTime -= 1000L
+                        }
+
+                        isButtonEnabled = true
                         spinning = false
                     }
                 }
             },
-            //enabled = !spinning,
+            enabled = isButtonEnabled,
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth()
@@ -270,8 +295,7 @@ fun LuckyWheel(
             contentPadding = PaddingValues(vertical = 12.dp),
         ) {
             Text(
-                text = "Spin",
-                style = MaterialTheme.typography.titleMedium,
+                text = if (isButtonEnabled) "Spin" else "Next spin in: $countdownDisplay",
                 color = Color.White
             )
         }

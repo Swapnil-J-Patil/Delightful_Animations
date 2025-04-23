@@ -48,7 +48,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun LuckyWheelScreen() {
-    val items = listOf("$ 50", "$ 150", "$ 20", "$ 1000", "$ 0", "$ 500", "$ 5", "$ 10")
+    val items = listOf("$ 50", "$ 150", "$ 25", "$ 1000", "$ 1", "$ 500", "$ 5", "$ 10")
     var result by remember { mutableStateOf("") }
     var isChestAnimation by remember {
         mutableStateOf(false)
@@ -162,7 +162,7 @@ fun LuckyWheelScreen() {
                         .height(250.dp)
                         .padding(16.dp)
                         .offset(y=-110.dp),
-                    contentDescription = "spinButton",
+                    contentDescription = "price",
                     contentScale = ContentScale.FillBounds
                 )
 
