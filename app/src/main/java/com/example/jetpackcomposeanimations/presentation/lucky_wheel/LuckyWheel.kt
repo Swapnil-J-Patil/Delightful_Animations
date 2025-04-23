@@ -20,12 +20,16 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
@@ -33,6 +37,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
@@ -45,6 +50,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.R
+import com.example.jetpackcomposeanimations.presentation.ui.theme.green
 import kotlin.io.path.Path
 import kotlin.io.path.moveTo
 import kotlin.math.cos
@@ -71,10 +77,11 @@ fun LuckyWheel(
         Color(0xFF0E5C4C) to Color(0xFF23af92),
         Color(0xFFFFA500) to Color(0xFFFFFF00), // Orange to Yellow
     )
-
+    val scaleAnim = remember { Animatable(1f) }
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier.aspectRatio(1f)
+            .padding(horizontal = 10.dp)
     ) {
         // 🌀 Rotating part
         Box(
@@ -214,17 +221,27 @@ fun LuckyWheel(
         }
 
     }
+
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.BottomCenter
     ) {
         Button(
             onClick = {
+
                 if (!spinning) {
                     spinning = true
                     val targetRotation = (360f * (5..10).random()) + (0..360).random()
 
                     coroutineScope.launch {
+                        scaleAnim.animateTo(
+                            targetValue = 1.2f,
+                            animationSpec = tween(durationMillis = 100)
+                        )
+                        scaleAnim.animateTo(
+                            targetValue = 1f,
+                            animationSpec = tween(durationMillis = 100)
+                        )
                         rotation.animateTo(
                             targetValue = rotation.value + targetRotation,
                             animationSpec = tween(
@@ -241,12 +258,22 @@ fun LuckyWheel(
                     }
                 }
             },
-            enabled = !spinning,
+            //enabled = !spinning,
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .padding(16.dp)
+                .fillMaxWidth()
+                .scale(scaleAnim.value)
+                .padding(16.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFFFFC107) ,
+            ), shape = RoundedCornerShape(8.dp),
+            contentPadding = PaddingValues(vertical = 12.dp),
         ) {
-            Text("Spin")
+            Text(
+                text = "Spin",
+                style = MaterialTheme.typography.titleMedium,
+                color = Color.White
+            )
         }
     }
 }

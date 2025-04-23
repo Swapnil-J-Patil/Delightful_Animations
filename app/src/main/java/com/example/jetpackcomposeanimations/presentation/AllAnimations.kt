@@ -52,8 +52,7 @@ import java.util.Collections
 fun AnimationExamplesScreen() {
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(10.dp),
+            .fillMaxSize(),
         verticalArrangement = Arrangement.Center, // Align content vertically in the center
         horizontalAlignment = Alignment.CenterHorizontally // Align content horizontally in the center
     ) {

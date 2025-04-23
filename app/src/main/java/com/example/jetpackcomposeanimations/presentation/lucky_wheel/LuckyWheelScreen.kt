@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
@@ -26,10 +27,13 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.airbnb.lottie.compose.LottieAnimation
@@ -38,6 +42,7 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.jetpackcomposeanimations.R
+import com.example.jetpackcomposeanimations.presentation.ui.theme.Poppins
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -53,6 +58,7 @@ fun LuckyWheelScreen() {
     }
     val chestComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.chest))
     val coinComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.coins))
+    val lightComposition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.light))
 
     val chestProgress by animateLottieCompositionAsState(
         chestComposition,
@@ -62,11 +68,25 @@ fun LuckyWheelScreen() {
         coinComposition,
         isPlaying = isCoinAnimation // Infinite repeat mode
     )
+    val lightProgress by animateLottieCompositionAsState(
+        lightComposition,
+        iterations = LottieConstants.IterateForever,
+        isPlaying = isChestAnimation // Infinite repeat mode
+    )
     val coroutineScope = rememberCoroutineScope()
     Box(
         contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()
-    ) {
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
+                brush = Brush.radialGradient(
+                    colors = listOf(Color(0xFF23af92), Color(0xFF121212)),
+                    center = Offset.Unspecified, // or specify a center like Offset(0f, 0f)
+                    radius = 1500f // Adjust based on screen size
+                )
+            )
+    )
+    {
 
         WheelStand(
             modifier = Modifier
@@ -100,6 +120,13 @@ fun LuckyWheelScreen() {
         ) {
 
             LottieAnimation(
+                composition = lightComposition,
+                progress = { lightProgress },
+                modifier = Modifier
+                    .size(600.dp)
+                    .align(Alignment.Center)
+            )
+            LottieAnimation(
                 composition = chestComposition,
                 progress = { chestProgress },
                 modifier = Modifier
@@ -123,12 +150,40 @@ fun LuckyWheelScreen() {
                     .size(500.dp)
                     .align(Alignment.Center)
             )
+            Box(
+                modifier = Modifier.fillMaxSize()
+                    .padding(top=100.dp),
+                contentAlignment = Alignment.TopCenter
+            )
+            {
+                Image(
+                    painter = painterResource(id = R.drawable.green_button),
+                    modifier = Modifier.fillMaxWidth()
+                        .height(250.dp)
+                        .padding(16.dp)
+                        .offset(y=-110.dp),
+                    contentDescription = "spinButton",
+                    contentScale = ContentScale.FillBounds
+                )
+
+                Text(
+                    text = result,
+                    color = Color.White,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 5.dp),
+                    textAlign = TextAlign.Center,
+                    fontSize = 25.sp,
+                    fontWeight = FontWeight.Bold,
+                    fontFamily = Poppins,
+                )
+            }
         }
 
-        Text(
+       /* Text(
             result, fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier
                 .padding(top = 600.dp)
-        )
+        )*/
     }
 }
 
