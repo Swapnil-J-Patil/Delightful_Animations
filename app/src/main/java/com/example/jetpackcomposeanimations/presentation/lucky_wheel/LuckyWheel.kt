@@ -265,7 +265,7 @@ fun LuckyWheel(
                             )
                         )
 
-                        val finalRotation = rotation.value % 360
+                       // val finalRotation = rotation.value % 360
                         val adjustedRotation = (270f - (rotation.value % 360) + 360) % 360
                         val selectedIndex = (adjustedRotation / sweepAngle).toInt() % items.size
                         onSpinEnd(selectedIndex)

@@ -34,6 +34,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.airbnb.lottie.compose.LottieAnimation
@@ -125,6 +126,8 @@ fun LuckyWheelScreen() {
                 modifier = Modifier
                     .size(600.dp)
                     .align(Alignment.Center)
+                    .offset(y=50.dp)
+
             )
             LottieAnimation(
                 composition = chestComposition,
@@ -132,6 +135,7 @@ fun LuckyWheelScreen() {
                 modifier = Modifier
                     .size(500.dp)
                     .align(Alignment.Center)
+                    .offset(y=50.dp)
             )
 
 
@@ -151,17 +155,19 @@ fun LuckyWheelScreen() {
                     .align(Alignment.Center)
             )
             Box(
-                modifier = Modifier.fillMaxSize()
-                    .padding(top=100.dp),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 100.dp),
                 contentAlignment = Alignment.TopCenter
             )
             {
                 Image(
                     painter = painterResource(id = R.drawable.green_button),
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
                         .height(250.dp)
                         .padding(16.dp)
-                        .offset(y=-110.dp),
+                        .offset(y = -110.dp),
                     contentDescription = "price",
                     contentScale = ContentScale.FillBounds
                 )
@@ -185,5 +191,11 @@ fun LuckyWheelScreen() {
                 .padding(top = 600.dp)
         )*/
     }
+}
+
+@Preview(showSystemUi = true)
+@Composable
+private fun Preview() {
+    LuckyWheelScreen()
 }
 
