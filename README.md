@@ -176,6 +176,10 @@ For details on third-party content, see [ATTRIBUTIONS.md](./ATTRIBUTIONS.md).
 
 Got an awesome animation to share? Feel free to contribute! Fork the repo, add your animation, and submit a pull request.
 
+## 🛠️ License
+
+This project is licensed under the MIT License.
+
 ## 🌟 Show Your Support
 
 If you find this repository helpful, don’t forget to ⭐ star the repo!
