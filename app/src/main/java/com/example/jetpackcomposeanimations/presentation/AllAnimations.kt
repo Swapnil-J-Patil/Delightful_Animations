@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.presentation.card_animations.DynamicCardListComponent
 import com.example.jetpackcomposeanimations.presentation.card_animations.FlipCardAnimation
 import com.example.jetpackcomposeanimations.presentation.card_animations.FlippingCardAnimation
+import com.example.jetpackcomposeanimations.presentation.card_animations.HorizontalCardFlip
 import com.example.jetpackcomposeanimations.presentation.flow_layout_animation.FlowLayoutAnimation
 import com.example.jetpackcomposeanimations.presentation.image_animations.RowPhotos
 import com.example.jetpackcomposeanimations.presentation.image_animations.StaggeredPhotos
@@ -68,6 +69,7 @@ fun AnimationExamplesScreen() {
         //CardFlipAnimation()
         //FlippingCardAnimation()
         //FlipCardAnimation()
+         HorizontalCardFlip()
 
         //************************** Shape Animations (Size or Padding) **************************
         //HideAndShowDiagonally()
@@ -165,6 +167,6 @@ fun AnimationExamplesScreen() {
         //RowPhotos()
         //StaggeredPhotos()
 
-        LuckyWheelScreen()
+        //LuckyWheelScreen()
     }
 }

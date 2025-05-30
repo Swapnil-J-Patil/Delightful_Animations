@@ -185,11 +185,6 @@ fun LuckyWheelScreen() {
                 )
             }
         }
-
-       /* Text(
-            result, fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier
-                .padding(top = 600.dp)
-        )*/
     }
 }
 
