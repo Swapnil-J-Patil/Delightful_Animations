@@ -1,9 +1,12 @@
 package com.example.jetpackcomposeanimations.presentation
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -11,12 +14,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.jetpackcomposeanimations.presentation.card_animations.AnimatedBorderCard
 import com.example.jetpackcomposeanimations.presentation.card_animations.DynamicCardListComponent
 import com.example.jetpackcomposeanimations.presentation.card_animations.FlipCardAnimation
 import com.example.jetpackcomposeanimations.presentation.card_animations.FlippingCardAnimation
+import com.example.jetpackcomposeanimations.presentation.card_animations.GlowingCard
 import com.example.jetpackcomposeanimations.presentation.card_animations.HorizontalCardFlip
 import com.example.jetpackcomposeanimations.presentation.flow_layout_animation.FlowLayoutAnimation
 import com.example.jetpackcomposeanimations.presentation.image_animations.RowPhotos
@@ -46,6 +52,7 @@ import com.example.jetpackcomposeanimations.presentation.text_animation.TypingAn
 import com.example.jetpackcomposeanimations.presentation.text_animation.counter_animation.AnimateCounterScreen
 import com.example.jetpackcomposeanimations.presentation.text_animation.counter_animation.AnimatedCounterDownUP
 import com.example.jetpackcomposeanimations.presentation.text_animation.counter_animation.AnimatedCounterSimple
+import com.example.jetpackcomposeanimations.presentation.ui.theme.blue
 import java.util.Collections
 
 @Preview
@@ -53,7 +60,8 @@ import java.util.Collections
 fun AnimationExamplesScreen() {
     Column(
         modifier = Modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .background(Color.Black.copy(alpha = 0.8f)),
         verticalArrangement = Arrangement.Center, // Align content vertically in the center
         horizontalAlignment = Alignment.CenterHorizontally // Align content horizontally in the center
     ) {
@@ -69,8 +77,14 @@ fun AnimationExamplesScreen() {
         //CardFlipAnimation()
         //FlippingCardAnimation()
         //FlipCardAnimation()
-         HorizontalCardFlip()
-
+        // HorizontalCardFlip
+        //AnimatedBorderCard(content = {SmoothAnimateText()})
+        GlowingCard(
+            glowingColor = blue,
+            modifier = Modifier.size(300.dp),
+            cornersRadius = 20.dp,
+            content = {        AnimatedBorderCard(content = {}) }
+        )
         //************************** Shape Animations (Size or Padding) **************************
         //HideAndShowDiagonally()
         // HideSwiftly()

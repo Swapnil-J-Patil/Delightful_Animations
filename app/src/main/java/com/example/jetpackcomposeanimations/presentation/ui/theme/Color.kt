@@ -18,3 +18,7 @@ val green = Color(0xFF1DB94F)
 val blue = Color(0xFF3274F1)
 val orange = Color(0xFFF46411)
 val red = Color(0xFFEA383B)
+
+val electricBlue=Color(0xFF00F0FF)
+val neonPink = Color(0xFF6C00FF)
+
