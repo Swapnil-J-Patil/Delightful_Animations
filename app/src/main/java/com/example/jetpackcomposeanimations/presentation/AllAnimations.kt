@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.jetpackcomposeanimations.presentation.button_animation.PipeMovingOnRoundedRectBorder
 import com.example.jetpackcomposeanimations.presentation.card_animations.AnimatedBorderCard
 import com.example.jetpackcomposeanimations.presentation.card_animations.DynamicCardListComponent
 import com.example.jetpackcomposeanimations.presentation.card_animations.FlipCardAnimation
@@ -78,13 +79,13 @@ fun AnimationExamplesScreen() {
         //FlippingCardAnimation()
         //FlipCardAnimation()
         // HorizontalCardFlip
-        //AnimatedBorderCard(content = {SmoothAnimateText()})
-        GlowingCard(
+        /*GlowingCard(
             glowingColor = blue,
             modifier = Modifier.size(300.dp),
             cornersRadius = 20.dp,
             content = {        AnimatedBorderCard(content = {}) }
-        )
+        )*/
+
         //************************** Shape Animations (Size or Padding) **************************
         //HideAndShowDiagonally()
         // HideSwiftly()
@@ -97,6 +98,8 @@ fun AnimationExamplesScreen() {
         // RotateButtonAnimation()
         // ShakeButtonAnimation()
         // FadeButtonAnimation()
+        PipeMovingOnRoundedRectBorder()
+        //NeonShimmerPipeOnPath()
 
         //************************** Shape Animations (Translation) **************************
         // AnimateOffset()

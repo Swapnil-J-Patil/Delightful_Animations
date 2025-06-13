@@ -10,7 +10,7 @@ import com.example.jetpackcomposeanimations.R
 
 // Set of Material typography styles to start with
 val Poppins = FontFamily(Font(R.font.poppins))
-
+val NeonFont = FontFamily(Font(R.font.cursive))
 val Typography = Typography(
     bodyLarge = TextStyle(
         fontFamily = FontFamily.Default,
