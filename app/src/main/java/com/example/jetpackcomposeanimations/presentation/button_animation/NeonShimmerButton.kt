@@ -42,11 +42,16 @@ import androidx.compose.ui.text.*
 import androidx.compose.ui.text.font.*
 import androidx.compose.material3.Text
 import androidx.compose.animation.core.*
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.graphics.nativeCanvas
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.res.ResourcesCompat
 import com.example.jetpackcomposeanimations.R
 import com.example.jetpackcomposeanimations.presentation.ui.theme.NeonFont
@@ -155,6 +160,18 @@ fun NeonShimmerPipeOnPath() {
 @Composable
 fun PipeMovingOnRoundedRectBorder() {
     val pathFraction = remember { Animatable(0f) }
+    val flickerAlpha = remember { Animatable(100f) }
+
+    LaunchedEffect(Unit) {
+        while (true) {
+            val targetAlpha = listOf(40f, 80f, 100f, 130f, 0f).random()
+            flickerAlpha.animateTo(
+                targetAlpha,
+                animationSpec = tween(durationMillis = (50..150).random(), easing = LinearEasing)
+            )
+            delay((100..400).random().toLong())
+        }
+    }
 
     LaunchedEffect(Unit) {
         pathFraction.animateTo(
@@ -171,17 +188,25 @@ fun PipeMovingOnRoundedRectBorder() {
     }
 
 
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        //NeonGlowingBannerText(text = "Neon Magic", fontSize = 50)
+    Box(modifier = Modifier.fillMaxSize()
+        , contentAlignment = Alignment.Center) {
+     /*   Image(
+            painter = painterResource(id=R.drawable.wall),
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.FillBounds,
+            contentDescription = "wallImage"
+        )*/
+        //NeonGlowingBannerText(text = "Neon Magic", fontSize = 50,cursiveTypeface = cursiveTypeface,)
         NeonGlowingBannerTextWithCursive(
             text = "Neon Magic",
             cursiveTypeface = cursiveTypeface,
-            fontSize = 55
+            fontSize = 55,
+            flickerValue = flickerAlpha
         )
 
         Canvas(modifier = Modifier.size(300.dp, 200.dp)) {
             val cornerRadius = 40.dp.toPx()
-            val beamLengthFraction = 1f
+            val beamLengthFraction = 0.999f
             val glowColor = android.graphics.Color.CYAN
             val strokeWidthPx = 6.dp.toPx()
 
@@ -232,6 +257,7 @@ fun PipeMovingOnRoundedRectBorder() {
                 val nativeCanvas = canvas.nativeCanvas
 
                 // 🌟 Glow layer (blurred, thick, semi-transparent)
+                // NEW flickering glowPaint block
                 val glowPaint = android.graphics.Paint().apply {
                     color = glowColor
                     style = android.graphics.Paint.Style.STROKE
@@ -239,9 +265,10 @@ fun PipeMovingOnRoundedRectBorder() {
                     isAntiAlias = true
                     strokeCap = android.graphics.Paint.Cap.ROUND
                     strokeJoin = android.graphics.Paint.Join.ROUND
-                    maskFilter = android.graphics.BlurMaskFilter(strokeWidthPx * 2f, android.graphics.BlurMaskFilter.Blur.NORMAL)
-                    alpha = 100
+                    maskFilter = BlurMaskFilter(strokeWidthPx * 2f, BlurMaskFilter.Blur.NORMAL)
+                    alpha = flickerAlpha.value.toInt().coerceIn(0, 255)
                 }
+
                 nativeCanvas.drawPath(pipePath, glowPaint)
 
                 // 💠 Core beam (sharp)
@@ -259,60 +286,6 @@ fun PipeMovingOnRoundedRectBorder() {
     }
 }
 
-@Composable
-fun NeonGlowingBannerText(
-    text: String,
-    fontSize: Int = 16,
-    fontColor: Color = electricBlue,
-    fontWeight: FontWeight = FontWeight.Bold,
-    alignment: Alignment = Alignment.Center,
-    fontFamily: FontFamily = NeonFont,
-    shadowColor: Color = electricBlue.copy(alpha = 0.2f),
-    outlineColor: Color = electricBlue.copy(alpha = 0.5f),
-    borderStrokeWidth: Float = 8f,
-    textAlign: TextAlign = TextAlign.Center,
-    blurRadius: Float = 10f
-) {
-
-    Box(
-        modifier = Modifier,
-        contentAlignment = alignment
-    ) {
-        // Gray border (outline effect)
-        Text(
-            text = text,
-            style = TextStyle(
-                fontSize = fontSize.sp,
-                fontWeight = fontWeight,
-                fontFamily = fontFamily,
-                color = outlineColor, // Gray outline color
-                shadow = Shadow(
-                    color = shadowColor,
-                ),
-                drawStyle = Stroke(width = borderStrokeWidth) // Border effect
-            ),
-            textAlign = textAlign,
-        )
-
-        // Golden gradient text
-        Text(
-            text = text,
-            style = TextStyle(
-                fontSize = fontSize.sp,
-                fontWeight = fontWeight,
-                fontFamily = fontFamily,
-                color = fontColor // Gold
-                ,
-                shadow = Shadow(
-                    color = shadowColor,
-                    blurRadius = blurRadius
-                )
-            ),
-            textAlign = textAlign,
-        )
-    }
-}
-
 
 @Composable
 fun NeonGlowingBannerTextWithCursive(
@@ -322,32 +295,58 @@ fun NeonGlowingBannerTextWithCursive(
     fontFamily: FontFamily = NeonFont,
     cursiveTypeface: Typeface,
     blurRadius: Float = 50f,        // Higher blur for strong glow
-    glowAlpha: Int = 200,           // 0–255, adjust glow transparency
-    glowStrokeWidthMultiplier: Float = 2.5f // Emulate outer beam thickness
+    glowAlpha: Int = 255,           // 0–255, adjust glow transparency
+    glowStrokeWidthMultiplier: Float = 2.5f, // Emulate outer beam thickness
+    flickerValue: Animatable<Float,AnimationVector1D>
 ) {
+    var flickerAlpha = remember { Animatable(255f) }
+
+    LaunchedEffect(flickerValue) {
+        /*while (true) {
+            val targetAlpha = listOf(50f, 80f, 120f, 200f, 255f, 0f).random()
+            flickerAlpha.animateTo(
+                targetAlpha,
+                animationSpec = tween(durationMillis = (50..180).random(), easing = LinearEasing)
+            )
+            delay((80..250).random().toLong())
+        }*/
+        flickerAlpha=flickerValue
+    }
+
     Box(
         modifier = Modifier
             .wrapContentSize()
             .drawBehind {
                 val nativeCanvas = drawContext.canvas.nativeCanvas
+                val centerX = size.width / 2f
+                val centerY = size.height / 2f + fontSize.sp.toPx() / 3f
+                val textPxSize = fontSize.sp.toPx()
 
-                val textPaint = android.graphics.Paint().apply {
-                    color = fontColor.copy(alpha = glowAlpha / 255f).toArgb()
-                    textSize = fontSize.sp.toPx()
+                // 🌟 GLOW PASS - thick, blurred, stroke style
+                val glowPaint = android.graphics.Paint().apply {
+                    color = fontColor.copy(alpha = flickerAlpha.value / 255f).toArgb()
+                    textSize = textPxSize
                     typeface = cursiveTypeface
                     isAntiAlias = true
-                    style = android.graphics.Paint.Style.FILL
-                    strokeWidth = fontSize.sp.toPx() / 10f * glowStrokeWidthMultiplier
+                    style = android.graphics.Paint.Style.STROKE
+                    strokeWidth = textPxSize / 10f * glowStrokeWidthMultiplier
                     maskFilter = BlurMaskFilter(blurRadius, BlurMaskFilter.Blur.NORMAL)
                     textAlign = android.graphics.Paint.Align.CENTER
                 }
 
-                nativeCanvas.drawText(
-                    text,
-                    size.width / 2f,
-                    size.height / 2f + fontSize.sp.toPx() / 3f,
-                    textPaint
-                )
+                // 💠 FILLED CORE - clean center text
+                val fillPaint = android.graphics.Paint().apply {
+                    color = fontColor.copy(alpha = flickerAlpha.value / 255f).toArgb()
+                    textSize = textPxSize
+                    typeface = cursiveTypeface
+                    isAntiAlias = true
+                    style = android.graphics.Paint.Style.FILL
+                    textAlign = android.graphics.Paint.Align.CENTER
+                }
+
+                // Draw both layers
+                nativeCanvas.drawText(text, centerX, centerY, glowPaint)
+                nativeCanvas.drawText(text, centerX, centerY, fillPaint)
             },
         contentAlignment = Alignment.Center
     ) {
@@ -356,12 +355,18 @@ fun NeonGlowingBannerTextWithCursive(
             text = text,
             fontSize = fontSize.sp,
             fontFamily = fontFamily,
-            fontWeight = FontWeight.Bold,
+            fontWeight = FontWeight.ExtraBold,
             color = fontColor,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+           /* shadow = Shadow(
+                color = shadowColor,
+            ),
+            drawStyle = Stroke(width = borderStrokeWidth) // Border effect*/
         )
     }
 }
+
+
 
 
 
