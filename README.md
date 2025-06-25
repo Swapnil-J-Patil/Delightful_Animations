@@ -146,18 +146,18 @@ A systematically organized collection of cool animations for buttons, cards, ima
 **Other Animations**<br>
 <table>
   <tr>
-    <th>Slding List Animation</th>
+    <th>Squishy Switch</th>
     <th>Shared Transition Element</th>
     <th>Flow Layout Animation </th>
   </tr>
 
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/ac1165dd-d470-4ad4-a531-a9407709c2a7" alt="Color Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/59a15777-2299-46a2-900d-7e6f0f6f525b" alt="Color Animation" width="250"></td>
     <td><img src="https://github.com/user-attachments/assets/78985e49-592f-4d83-95b4-40d31ddf54e9" alt="Color Animation" width="250"></td>
     <td><img src="https://github.com/user-attachments/assets/518dac83-ba1d-4eeb-8391-4acaaeb28b26" alt="Color Animation" width="250"></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/Swapnil-J-Patil/Jetpack_Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/list_animation/ListAnimationWithFloatingButton.kt">🔗 Source Code</a></td>
+    <td><a href="https://github.com/Swapnil-J-Patil/Switch-Animation-Jetpack-Compose/blob/master/app/src/main/java/com/swapnil/squishyswitch/presentation/SquishyToggle.kt">🔗 Source Code</a></td>
         <td><a href="https://github.com/Swapnil-J-Patil/Jetpack_Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/navigation_animation/shared_transition_screen/SharedTransitionAnimation.kt">🔗 Source Code</a></td>
     <td><a href="https://github.com/Swapnil-J-Patil/Jetpack_Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/flow_layout_animation/FlowLayoutAnimation.kt">🔗Source Code</a></td>
   </tr>
