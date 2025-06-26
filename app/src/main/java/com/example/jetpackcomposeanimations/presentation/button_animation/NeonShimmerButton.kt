@@ -164,7 +164,7 @@ fun PipeMovingOnRoundedRectBorder() {
 
     LaunchedEffect(Unit) {
         while (true) {
-            val targetAlpha = listOf(40f, 80f, 100f, 130f, 0f).random()
+            val targetAlpha = listOf(40f, 80f, 100f, 130f).random()
             flickerAlpha.animateTo(
                 targetAlpha,
                 animationSpec = tween(durationMillis = (50..150).random(), easing = LinearEasing)
@@ -198,13 +198,15 @@ fun PipeMovingOnRoundedRectBorder() {
         )*/
         //NeonGlowingBannerText(text = "Neon Magic", fontSize = 50,cursiveTypeface = cursiveTypeface,)
         NeonGlowingBannerTextWithCursive(
-            text = "Neon Magic",
+            text = "Jetpack Jedi",
             cursiveTypeface = cursiveTypeface,
-            fontSize = 55,
+            fontSize = 65,
             flickerValue = flickerAlpha
         )
 
-        Canvas(modifier = Modifier.size(300.dp, 200.dp)) {
+        Canvas(modifier = Modifier.fillMaxWidth()
+            .height(200.dp)
+            .padding(15.dp)) {
             val cornerRadius = 40.dp.toPx()
             val beamLengthFraction = 0.999f
             val glowColor = android.graphics.Color.CYAN
