@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeanimations.presentation.button_animation
+package com.example.jetpackcomposeanimations.presentation.card_animations
 
 import android.graphics.PathMeasure
 import android.graphics.RectF
@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -18,40 +17,16 @@ import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.presentation.ui.theme.electricBlue
 
 import android.graphics.BlurMaskFilter
-import android.graphics.LinearGradient
 import android.graphics.Paint
-import android.graphics.Shader
 import android.graphics.Typeface
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.*
-import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
-import androidx.compose.animation.core.*
 import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.unit.TextUnit
-import androidx.compose.runtime.*
-import androidx.compose.ui.*
-import androidx.compose.ui.graphics.*
-import androidx.compose.ui.graphics.drawscope.*
-import androidx.compose.foundation.layout.*
 import androidx.compose.ui.unit.*
-import androidx.compose.ui.text.*
 import androidx.compose.ui.text.font.*
 import androidx.compose.material3.Text
-import androidx.compose.animation.core.*
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.graphics.nativeCanvas
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.res.ResourcesCompat
 import com.example.jetpackcomposeanimations.R
 import com.example.jetpackcomposeanimations.presentation.ui.theme.NeonFont
@@ -65,7 +40,7 @@ fun NeonShimmerPipeOnPath() {
         pathFraction.animateTo(
             targetValue = 1f,
             animationSpec = infiniteRepeatable(
-                animation = tween(durationMillis = 2000, easing = LinearEasing),
+                animation = tween(durationMillis = 10000, easing = LinearEasing),
                 repeatMode = RepeatMode.Restart
             )
         )
@@ -76,7 +51,7 @@ fun NeonShimmerPipeOnPath() {
             val cornerRadius = 40.dp.toPx()
             val beamWidth = 8.dp.toPx()
             val glowWidth = 24.dp.toPx()
-            val beamFraction = 1f
+            val beamFraction = 0.1f
 
             val rect = RectF(0f, 0f, size.width, size.height)
             val androidPath = android.graphics.Path().apply {
@@ -131,7 +106,7 @@ fun NeonShimmerPipeOnPath() {
                 nativeCanvas.drawPath(beamPath, solidPaint)
 
                 // 3. Shimmer Overlay using native LinearGradient
-                val shimmerPaint = Paint().apply {
+               /* val shimmerPaint = Paint().apply {
                     shader = LinearGradient(
                         0f,
                         0f,
@@ -150,8 +125,8 @@ fun NeonShimmerPipeOnPath() {
                     isAntiAlias = true
                     strokeCap = Paint.Cap.ROUND
                     strokeJoin = Paint.Join.ROUND
-                }
-                nativeCanvas.drawPath(beamPath, shimmerPaint)
+                }*/
+                //nativeCanvas.drawPath(beamPath, shimmerPaint)
             }
         }
     }

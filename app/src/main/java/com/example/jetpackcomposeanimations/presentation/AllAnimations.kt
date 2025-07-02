@@ -4,9 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -15,46 +12,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.example.jetpackcomposeanimations.presentation.button_animation.PipeMovingOnRoundedRectBorder
-import com.example.jetpackcomposeanimations.presentation.card_animations.AnimatedBorderCard
-import com.example.jetpackcomposeanimations.presentation.card_animations.DynamicCardListComponent
-import com.example.jetpackcomposeanimations.presentation.card_animations.FlipCardAnimation
-import com.example.jetpackcomposeanimations.presentation.card_animations.FlippingCardAnimation
-import com.example.jetpackcomposeanimations.presentation.card_animations.GlowingCard
-import com.example.jetpackcomposeanimations.presentation.card_animations.HorizontalCardFlip
-import com.example.jetpackcomposeanimations.presentation.flow_layout_animation.FlowLayoutAnimation
-import com.example.jetpackcomposeanimations.presentation.image_animations.RowPhotos
-import com.example.jetpackcomposeanimations.presentation.image_animations.StaggeredPhotos
-import com.example.jetpackcomposeanimations.presentation.image_animations.shared_transition_image.DemonSlayerPhotoGallery
-import com.example.jetpackcomposeanimations.presentation.list_animation.ImageResizeOnScrollExample
-import com.example.jetpackcomposeanimations.presentation.list_animation.ListAnimationWithFloatingButton
-import com.example.jetpackcomposeanimations.presentation.list_animation.ResponsiveGrid
-import com.example.jetpackcomposeanimations.presentation.list_animation.drag_drop_list.DragDropList
-import com.example.jetpackcomposeanimations.presentation.list_animation.list_item_swipe.SwipeableTextAnimation
-import com.example.jetpackcomposeanimations.presentation.list_animation.scaling_item_list.ScalingListItemAnimation
-import com.example.jetpackcomposeanimations.presentation.lucky_wheel.LuckyWheelScreen
-import com.example.jetpackcomposeanimations.presentation.navigation_animation.conditional_navigation.AnimatedContentExampleSwitch
-import com.example.jetpackcomposeanimations.presentation.navigation_animation.shared_transition_screen.AnimateBetweenComposableDestinations
-import com.example.jetpackcomposeanimations.presentation.sidebar_animation.SideBarAnimation
-import com.example.jetpackcomposeanimations.presentation.text_animation.AnimatedText
-import com.example.jetpackcomposeanimations.presentation.text_animation.ControlledSmoothAnimateText
-import com.example.jetpackcomposeanimations.presentation.text_animation.RevealingTextOnclick
-import com.example.jetpackcomposeanimations.presentation.text_animation.SmoothAnimateText
-import com.example.jetpackcomposeanimations.presentation.text_animation.SplitTextReveal
-import com.example.jetpackcomposeanimations.presentation.text_animation.TextExpandAnimation
-import com.example.jetpackcomposeanimations.presentation.text_animation.TextListAnimation
-import com.example.jetpackcomposeanimations.presentation.text_animation.TextVisibilityAnimation
-import com.example.jetpackcomposeanimations.presentation.text_animation.TextWithMotion
-import com.example.jetpackcomposeanimations.presentation.text_animation.TextWithPhotoBackground
-import com.example.jetpackcomposeanimations.presentation.text_animation.TypingAnimation
-import com.example.jetpackcomposeanimations.presentation.text_animation.counter_animation.AnimateCounterScreen
-import com.example.jetpackcomposeanimations.presentation.text_animation.counter_animation.AnimatedCounterDownUP
-import com.example.jetpackcomposeanimations.presentation.text_animation.counter_animation.AnimatedCounterSimple
-import com.example.jetpackcomposeanimations.presentation.ui.theme.blue
-import java.util.Collections
+import com.example.jetpackcomposeanimations.presentation.card_animations.InfiniteCardStack
+import com.example.jetpackcomposeanimations.presentation.card_animations.NeonShimmerPipeOnPath
+import com.example.jetpackcomposeanimations.presentation.card_animations.PipeMovingOnRoundedRectBorder
 
 @Preview
 @Composable
@@ -85,6 +46,8 @@ fun AnimationExamplesScreen() {
             cornersRadius = 20.dp,
             content = {        AnimatedBorderCard(content = {}) }
         )*/
+        PipeMovingOnRoundedRectBorder()
+
 
         //************************** Shape Animations (Size or Padding) **************************
         //HideAndShowDiagonally()
@@ -98,8 +61,6 @@ fun AnimationExamplesScreen() {
         // RotateButtonAnimation()
         // ShakeButtonAnimation()
         // FadeButtonAnimation()
-        PipeMovingOnRoundedRectBorder()
-        //NeonShimmerPipeOnPath()
 
         //************************** Shape Animations (Translation) **************************
         // AnimateOffset()
