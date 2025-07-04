@@ -133,7 +133,7 @@ fun PlaneHealth(healthPercentage: Float) {
 fun MaskedImage(
     imageResId: Int,
     maskResId: Int,
-    modifier: Modifier = Modifier.size(280.dp, 687.dp)
+    modifier: Modifier = Modifier.size(400.dp, 687.dp)
 ) {
     val context = LocalContext.current
 
@@ -148,9 +148,23 @@ fun MaskedImage(
     Canvas(modifier = modifier) {
         val paint = Paint()
         val layerRect = Rect(0f, 0f, size.width, size.height)
+        val canvasWidth = size.width
+        val canvasHeight = size.height
+        val maskWidth = maskBitmap.width
+        val maskHeight = maskBitmap.height
+
+        // Define source mask region (30% to 60%)
+        val srcStartX = (maskWidth * 0.66f).toInt()
+        val srcEndX = (maskWidth * 1f).toInt()
+        val srcWidth = srcEndX - srcStartX
+        val shrinkFactor = 0.98f // shrink to 85% of canvas size
+        val shrinkedWidth = (canvasWidth * shrinkFactor).toInt()
+        val shrinkedHeight = (canvasHeight * shrinkFactor).toInt()
+        val offsetX = ((canvasWidth - shrinkedWidth) / 2f).toInt()
+        val offsetY = ((canvasHeight - shrinkedHeight) / 2f).toInt()
 
         drawIntoCanvas { canvas ->
-            val saved = canvas.saveLayer(layerRect, paint)
+            canvas.saveLayer(layerRect, paint)
 
             // Draw base image stretched to full canvas
             canvas.drawImageRect(
@@ -158,21 +172,21 @@ fun MaskedImage(
                 srcOffset = IntOffset.Zero,
                 srcSize = IntSize(imageBitmap.width, imageBitmap.height),
                 dstOffset = IntOffset.Zero,
-                dstSize = IntSize(size.width.toInt(), size.height.toInt()),
+                dstSize = IntSize(canvasWidth.toInt(), canvasHeight.toInt()),
                 paint = paint
             )
-
             // Apply the mask using BlendMode.DstIn
             paint.blendMode = BlendMode.Modulate
 
             canvas.drawImageRect(
                 image = maskBitmap,
-                srcOffset = IntOffset.Zero,
-                srcSize = IntSize(maskBitmap.width, maskBitmap.height),
-                dstOffset = IntOffset.Zero,
-                dstSize = IntSize(size.width.toInt(), size.height.toInt()),
+                srcOffset = IntOffset(srcStartX, 0),
+                srcSize = IntSize(srcWidth, maskHeight),
+                dstOffset = IntOffset(offsetX, offsetY),
+                dstSize = IntSize(shrinkedWidth, shrinkedHeight),
                 paint = paint
             )
+
 
             canvas.restore()
         }

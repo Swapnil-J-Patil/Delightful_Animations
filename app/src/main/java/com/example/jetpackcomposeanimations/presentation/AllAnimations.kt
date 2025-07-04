@@ -154,7 +154,7 @@ fun AnimationExamplesScreen() {
         //PlaneHealth(20f)
         MaskedImage(
             imageResId = R.drawable.can_image, // background label image
-            maskResId = R.drawable.new_bg     // can-shaped alpha mask
+            maskResId = R.drawable.img_1     // can-shaped alpha mask
         )
 
         //************************** Other Animations **************************
