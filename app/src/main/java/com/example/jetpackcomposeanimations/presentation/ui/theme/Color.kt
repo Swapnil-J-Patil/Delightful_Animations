@@ -21,4 +21,4 @@ val red = Color(0xFFEA383B)
 
 val electricBlue=Color(0xFF00F0FF)
 val neonPink = Color(0xFF6C00FF)
-
+val pink=Color(0xFFF8D6DF)

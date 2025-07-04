@@ -16,14 +16,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.presentation.card_animations.NeonShimmerPipeOnPath
 import com.example.jetpackcomposeanimations.presentation.card_animations.PipeMovingOnRoundedRectBorder
-import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.CardFlyAndShrink
-import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.InfiniteScroll
-import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.ComposeOverlapping
-import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.ComposeOverlappingColumn
-import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.LazyColumnWithFirstItemSmaller
-import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.PerspectiveListView
-import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.SamplePerspectiveListViewScreen
-import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.SwipeUpShrinkCard
+import com.example.jetpackcomposeanimations.presentation.image_animations.PlaneHealth
+import com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation.ColorPager
+
 
 @Preview
 @Composable
@@ -147,18 +142,16 @@ fun AnimationExamplesScreen() {
         )*/
         //ListAnimationWithFloatingButton(menuItems = items, onMenuItemClick = { item -> } )
         // FlowLayoutAnimation()
-        //InfiniteScroll()
-        //ComposeOverlappingColumn()
-        //LazyColumnWithFirstItemSmaller()
-        //ComposeOverlappingColumn()
-        //SamplePerspectiveListViewScreen()
-        CardFlyAndShrink()
+
 
 
         //************************** Image Animations **************************
         //RowPhotos()
         //StaggeredPhotos()
+        //ColorPager()
+        PlaneHealth(20f)
 
+        //************************** Other Animations **************************
         //LuckyWheelScreen()
     }
 }
