@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.jetpackcomposeanimations"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.jetpackcomposeanimations"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -69,10 +69,11 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.androidx.ui.v190alpha04)
 
-    implementation("androidx.navigation:navigation-compose:2.8.5")
+    implementation("androidx.navigation:navigation-compose:2.9.1")
     implementation (libs.coil.compose)
-    implementation("androidx.compose.foundation:foundation-layout:1.7.0") // Use 1.7.x series for compatibility with compileSdk 34
+    implementation("androidx.compose.foundation:foundation-layout:1.8.3") // Use 1.7.x series for compatibility with compileSdk 34
 
     implementation(libs.androidx.compose.animation)
     implementation(libs.androidx.navigation.compose)

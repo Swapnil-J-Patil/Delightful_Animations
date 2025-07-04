@@ -1,21 +1,23 @@
 [versions]
-agp = "8.5.1"
-coilCompose = "2.1.0"
+agp = "8.10.1"
+coilCompose = "2.4.0"
 kotlin = "1.9.0"
-coreKtx = "1.13.1"
+coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.8.7"
-activityCompose = "1.9.3"
-composeBom = "2024.04.01"
-navigationCommonKtx = "2.8.5"
-composeAnimation = "1.7.0-alpha07"
-navigationCompose = "2.7.7"
-animationGraphicsAndroid = "1.7.6"
-
+lifecycleRuntimeKtx = "2.9.1"
+activityCompose = "1.10.1"
+composeBom = "2025.06.01"
+navigationCommonKtx = "2.9.1"
+composeAnimation = "1.8.3"
+navigationCompose = "2.9.1"
+animationGraphicsAndroid = "1.8.3"
+composever=":1.9.0-alpha04"
+ui = "1.9.0-beta02"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-ui-v190alpha04 = { module = "androidx.compose.ui:ui", version.ref = "ui" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -23,7 +25,7 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui",version.ref="composever" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }

@@ -36,7 +36,7 @@ fun SharedTransitionScope.DetailScreen(
                 .aspectRatio(16 / 9f)
                 .weight(1f)
                 .sharedElement(
-                    state = rememberSharedContentState(key = "image/$resId"),
+                    sharedContentState = rememberSharedContentState(key = "image/$resId"),
                     animatedVisibilityScope = animatedVisibilityScope,
                     boundsTransform = { _, _ ->
                         tween(durationMillis = 1000)
@@ -49,7 +49,7 @@ fun SharedTransitionScope.DetailScreen(
             modifier = Modifier
                 .weight(1f)
                 .sharedElement(
-                    state = rememberSharedContentState(key = "text/$text"),
+                    sharedContentState = rememberSharedContentState(key = "text/$text"),
                     animatedVisibilityScope = animatedVisibilityScope,
                     boundsTransform = { _, _ ->
                         tween(durationMillis = 1000)

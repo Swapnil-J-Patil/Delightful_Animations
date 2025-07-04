@@ -13,9 +13,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.jetpackcomposeanimations.presentation.card_animations.InfiniteCardStack
+import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.presentation.card_animations.NeonShimmerPipeOnPath
 import com.example.jetpackcomposeanimations.presentation.card_animations.PipeMovingOnRoundedRectBorder
+import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.CardFlyAndShrink
+import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.InfiniteScroll
+import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.ComposeOverlapping
+import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.ComposeOverlappingColumn
+import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.LazyColumnWithFirstItemSmaller
+import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.PerspectiveListView
+import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.SamplePerspectiveListViewScreen
+import com.example.jetpackcomposeanimations.presentation.list_animation.infinite_list.SwipeUpShrinkCard
 
 @Preview
 @Composable
@@ -46,7 +54,7 @@ fun AnimationExamplesScreen() {
             cornersRadius = 20.dp,
             content = {        AnimatedBorderCard(content = {}) }
         )*/
-        PipeMovingOnRoundedRectBorder()
+        //PipeMovingOnRoundedRectBorder()
 
 
         //************************** Shape Animations (Size or Padding) **************************
@@ -139,6 +147,12 @@ fun AnimationExamplesScreen() {
         )*/
         //ListAnimationWithFloatingButton(menuItems = items, onMenuItemClick = { item -> } )
         // FlowLayoutAnimation()
+        //InfiniteScroll()
+        //ComposeOverlappingColumn()
+        //LazyColumnWithFirstItemSmaller()
+        //ComposeOverlappingColumn()
+        //SamplePerspectiveListViewScreen()
+        CardFlyAndShrink()
 
 
         //************************** Image Animations **************************

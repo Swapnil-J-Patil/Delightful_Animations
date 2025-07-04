@@ -104,7 +104,7 @@ fun DemonSlayerPhotoGallery() {
                         DemonSlayerCardItem(
                             demonSlayer = demonSlayer,
                             modifier = Modifier.sharedElement(
-                                state = rememberSharedContentState(key = demonSlayer.id),
+                                sharedContentState = rememberSharedContentState(key = demonSlayer.id),
                                 animatedVisibilityScope = this@AnimatedVisibility
                             ),
                             onClick = { selectedCharacter = demonSlayer },
@@ -254,7 +254,7 @@ fun SharedTransitionScope.CharacterDetailCardItem(
                     DemonSlayerCardItem(
                         demonSlayer = demonSlayer,
                         modifier = Modifier.sharedElement(
-                            state = rememberSharedContentState(key = demonSlayer.id),
+                            sharedContentState = rememberSharedContentState(key = demonSlayer.id),
                             animatedVisibilityScope = this@AnimatedContent
                         ),
                         onClick = onDismiss,
