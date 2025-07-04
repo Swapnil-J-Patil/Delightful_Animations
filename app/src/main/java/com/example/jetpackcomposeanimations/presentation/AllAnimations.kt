@@ -14,8 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.jetpackcomposeanimations.R
 import com.example.jetpackcomposeanimations.presentation.card_animations.NeonShimmerPipeOnPath
 import com.example.jetpackcomposeanimations.presentation.card_animations.PipeMovingOnRoundedRectBorder
+import com.example.jetpackcomposeanimations.presentation.image_animations.MaskedImage
 import com.example.jetpackcomposeanimations.presentation.image_animations.PlaneHealth
 import com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation.ColorPager
 
@@ -149,7 +151,11 @@ fun AnimationExamplesScreen() {
         //RowPhotos()
         //StaggeredPhotos()
         //ColorPager()
-        PlaneHealth(20f)
+        //PlaneHealth(20f)
+        MaskedImage(
+            imageResId = R.drawable.can_image, // background label image
+            maskResId = R.drawable.new_bg     // can-shaped alpha mask
+        )
 
         //************************** Other Animations **************************
         //LuckyWheelScreen()

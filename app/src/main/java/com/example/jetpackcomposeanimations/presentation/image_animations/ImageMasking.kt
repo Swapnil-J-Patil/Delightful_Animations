@@ -1,5 +1,6 @@
 package com.example.jetpackcomposeanimations.presentation.image_animations
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -11,18 +12,24 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.Paint
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.R
@@ -30,8 +37,9 @@ import com.example.jetpackcomposeanimations.presentation.ui.theme.pink
 
 @Composable
 fun PlaneHealth(healthPercentage: Float) {
-    val planeSize = 240
-    val imageBitmap = ImageBitmap.imageResource(R.drawable.img)
+    val width = 200
+    val height=400
+    val imageBitmap = ImageBitmap.imageResource(R.drawable.can_image)
     val metalShineMask = Brush.verticalGradient(
         colors = listOf(
             Color.Transparent,
@@ -45,7 +53,7 @@ fun PlaneHealth(healthPercentage: Float) {
 
     Box(
         modifier = Modifier
-            .size(planeSize.dp)
+            .size(width = width.dp, height = height.dp)
             .drawWithContent {
                 with(drawContext.canvas.nativeCanvas) {
                     val checkPoint = saveLayer(null, null)
@@ -54,8 +62,8 @@ fun PlaneHealth(healthPercentage: Float) {
                     drawImage(
                         image = imageBitmap,
                         dstSize = IntSize(
-                            width = planeSize.dp.toPx().toInt(),
-                            height = planeSize.dp.toPx().toInt()
+                            width = width.dp.toPx().toInt(),
+                            height = height.dp.toPx().toInt()
                         ),
                         blendMode = BlendMode.DstIn
                     )
@@ -66,7 +74,7 @@ fun PlaneHealth(healthPercentage: Float) {
     ) {
         Box(
             modifier = Modifier
-                .size(planeSize.dp+150.dp)
+                .size(width = width.dp, height = height.dp)
                 .background(pink)
 
         ) {
@@ -87,19 +95,19 @@ fun PlaneHealth(healthPercentage: Float) {
                     .height((planeSize * healthPercentage).dp)*/
                     .padding(top=20.dp)
                     .clip(CircleShape)
-                    .fillMaxSize(0.4f)
+                    .size(150.dp)
                     .align(Alignment.Center)
                     ,
                 contentScale = ContentScale.Crop
             )
-            Box(
+            /*Box(
                 modifier = Modifier
                     .size(120.dp, 300.dp)
                     .drawWithContent {
                         drawContent()
                         drawRect(brush = metalShineMask)
                     }
-            )
+            )*/
 
             Image(painter = painterResource(id = R.drawable.droplets),
                 contentDescription = "droplets bg",
@@ -120,3 +128,55 @@ fun PlaneHealth(healthPercentage: Float) {
         }
     }
 }
+
+@Composable
+fun MaskedImage(
+    imageResId: Int,
+    maskResId: Int,
+    modifier: Modifier = Modifier.size(280.dp, 687.dp)
+) {
+    val context = LocalContext.current
+
+    val imageBitmap = remember(imageResId) {
+        ImageBitmap.imageResource(context.resources, imageResId)
+    }
+
+    val maskBitmap = remember(maskResId) {
+        ImageBitmap.imageResource(context.resources, maskResId)
+    }
+
+    Canvas(modifier = modifier) {
+        val paint = Paint()
+        val layerRect = Rect(0f, 0f, size.width, size.height)
+
+        drawIntoCanvas { canvas ->
+            val saved = canvas.saveLayer(layerRect, paint)
+
+            // Draw base image stretched to full canvas
+            canvas.drawImageRect(
+                image = imageBitmap,
+                srcOffset = IntOffset.Zero,
+                srcSize = IntSize(imageBitmap.width, imageBitmap.height),
+                dstOffset = IntOffset.Zero,
+                dstSize = IntSize(size.width.toInt(), size.height.toInt()),
+                paint = paint
+            )
+
+            // Apply the mask using BlendMode.DstIn
+            paint.blendMode = BlendMode.Modulate
+
+            canvas.drawImageRect(
+                image = maskBitmap,
+                srcOffset = IntOffset.Zero,
+                srcSize = IntSize(maskBitmap.width, maskBitmap.height),
+                dstOffset = IntOffset.Zero,
+                dstSize = IntSize(size.width.toInt(), size.height.toInt()),
+                paint = paint
+            )
+
+            canvas.restore()
+        }
+    }
+}
+
+
