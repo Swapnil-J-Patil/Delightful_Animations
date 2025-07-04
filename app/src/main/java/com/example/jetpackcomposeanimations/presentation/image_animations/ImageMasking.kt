@@ -1,5 +1,8 @@
 package com.example.jetpackcomposeanimations.presentation.image_animations
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -12,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,6 +38,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.R
 import com.example.jetpackcomposeanimations.presentation.ui.theme.pink
+import kotlinx.coroutines.delay
 
 @Composable
 fun PlaneHealth(healthPercentage: Float) {
@@ -145,26 +150,40 @@ fun MaskedImage(
         ImageBitmap.imageResource(context.resources, maskResId)
     }
 
+    val animatedStartPercent = remember { Animatable(0f) }
+
+    // Trigger animation sequence
+    LaunchedEffect(Unit) {
+        val steps = listOf(0f, 0.33f, 0.66f)
+        for (i in 0 until steps.lastIndex) {
+            delay(3000)
+            animatedStartPercent.animateTo(
+                targetValue = steps[i + 1],
+                animationSpec = tween(durationMillis = 800, easing = LinearEasing)
+            )
+        }
+    }
     Canvas(modifier = modifier) {
         val paint = Paint()
-        val layerRect = Rect(0f, 0f, size.width, size.height)
         val canvasWidth = size.width
         val canvasHeight = size.height
         val maskWidth = maskBitmap.width
         val maskHeight = maskBitmap.height
 
-        // Define source mask region (30% to 60%)
-        val srcStartX = (maskWidth * 0.66f).toInt()
-        val srcEndX = (maskWidth * 1f).toInt()
+        // Animate visible 33% window of mask
+        val srcStartX = (maskWidth * animatedStartPercent.value).toInt()
+        val srcEndX = (srcStartX + (maskWidth * 0.33f)).coerceAtMost(maskWidth.toFloat()).toInt()
         val srcWidth = srcEndX - srcStartX
-        val shrinkFactor = 0.98f // shrink to 85% of canvas size
+
+        // Slightly shrink and center mask image
+        val shrinkFactor = 0.98f
         val shrinkedWidth = (canvasWidth * shrinkFactor).toInt()
         val shrinkedHeight = (canvasHeight * shrinkFactor).toInt()
         val offsetX = ((canvasWidth - shrinkedWidth) / 2f).toInt()
         val offsetY = ((canvasHeight - shrinkedHeight) / 2f).toInt()
 
         drawIntoCanvas { canvas ->
-            canvas.saveLayer(layerRect, paint)
+            canvas.saveLayer(Rect(0f, 0f, canvasWidth, canvasHeight), paint)
 
             // Draw base image stretched to full canvas
             canvas.drawImageRect(
