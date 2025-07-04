@@ -20,7 +20,7 @@ A systematically organized collection of cool animations for buttons, cards, ima
   <tr>
     <td><a href="https://github.com/Swapnil-J-Patil/Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/card_animations/CardFlipAnimation.kt">🔗 Source Code</a></td>
     <td><a href="https://github.com/Swapnil-J-Patil/Jetpack_Compose_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/card_animations/FlipCardAnimation.kt">🔗 Source Code</a></td>
-    <td><a href="https://github.com/Swapnil-J-Patil/Delightful_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/card_animations/GlowingCard.kt">🔗 Source Code</a></td>
+    <td><a href="https://github.com/Swapnil-J-Patil/Delightful_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/card_animations/NeonGlowingCard.kt">🔗 Source Code</a></td>
   </tr>
 </table>
 
