@@ -19,6 +19,7 @@ import com.example.jetpackcomposeanimations.presentation.card_animations.NeonShi
 import com.example.jetpackcomposeanimations.presentation.card_animations.PipeMovingOnRoundedRectBorder
 import com.example.jetpackcomposeanimations.presentation.image_animations.MaskedImage
 import com.example.jetpackcomposeanimations.presentation.image_animations.PlaneHealth
+import com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation.CircleRevealPager
 import com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation.ColorPager
 
 
@@ -132,6 +133,7 @@ fun AnimationExamplesScreen() {
         //DemonSlayerPhotoGallery()
         //SwipeableTextAnimation()       // Swiping text animation
         // PagerAnimation()               // Horizontal scrolling with animation
+        CircleRevealPager()
         // ResponsiveGrid()               // Adapts based on screen size
         // ImageResizeOnScrollExample()   // Image resizes dynamically on scroll
        /* DragDropList(items = items, onMove = { from, to ->
@@ -152,10 +154,10 @@ fun AnimationExamplesScreen() {
         //StaggeredPhotos()
         //ColorPager()
         //PlaneHealth(20f)
-        MaskedImage(
+        /*MaskedImage(
             imageResId = R.drawable.can_image, // background label image
             maskResId = R.drawable.img_1     // can-shaped alpha mask
-        )
+        )*/
 
         //************************** Other Animations **************************
         //LuckyWheelScreen()
