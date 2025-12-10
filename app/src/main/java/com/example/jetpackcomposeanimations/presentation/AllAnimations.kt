@@ -1,5 +1,7 @@
 package com.example.jetpackcomposeanimations.presentation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,8 +23,10 @@ import com.example.jetpackcomposeanimations.presentation.image_animations.Masked
 import com.example.jetpackcomposeanimations.presentation.image_animations.PlaneHealth
 import com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation.CircleRevealPager
 import com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation.ColorPager
+import com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation.MoviePager
 
 
+@RequiresApi(Build.VERSION_CODES.S)
 @Preview
 @Composable
 fun AnimationExamplesScreen() {
@@ -133,7 +137,8 @@ fun AnimationExamplesScreen() {
         //DemonSlayerPhotoGallery()
         //SwipeableTextAnimation()       // Swiping text animation
         // PagerAnimation()               // Horizontal scrolling with animation
-        CircleRevealPager()
+        //CircleRevealPager()
+        MoviePager()
         // ResponsiveGrid()               // Adapts based on screen size
         // ImageResizeOnScrollExample()   // Image resizes dynamically on scroll
        /* DragDropList(items = items, onMove = { from, to ->
