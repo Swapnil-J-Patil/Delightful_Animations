@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.R
+import com.example.jetpackcomposeanimations.presentation.button_animation.ShinyButton
 import com.example.jetpackcomposeanimations.presentation.card_animations.NeonShimmerPipeOnPath
 import com.example.jetpackcomposeanimations.presentation.card_animations.PipeMovingOnRoundedRectBorder
 import com.example.jetpackcomposeanimations.presentation.image_animations.MaskedImage
@@ -33,7 +34,7 @@ fun AnimationExamplesScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Black.copy(alpha = 0.8f)),
+            .background(Color.White.copy(alpha = 0.8f)),
         verticalArrangement = Arrangement.Center, // Align content vertically in the center
         horizontalAlignment = Alignment.CenterHorizontally // Align content horizontally in the center
     ) {
@@ -71,6 +72,10 @@ fun AnimationExamplesScreen() {
         // RotateButtonAnimation()
         // ShakeButtonAnimation()
         // FadeButtonAnimation()
+        ShinyButton(
+            text = "Click Me",
+            onClick = { }
+        )
 
         //************************** Shape Animations (Translation) **************************
         // AnimateOffset()
@@ -138,7 +143,7 @@ fun AnimationExamplesScreen() {
         //SwipeableTextAnimation()       // Swiping text animation
         // PagerAnimation()               // Horizontal scrolling with animation
         //CircleRevealPager()
-        MoviePager()
+        //MoviePager()
         // ResponsiveGrid()               // Adapts based on screen size
         // ImageResizeOnScrollExample()   // Image resizes dynamically on scroll
        /* DragDropList(items = items, onMove = { from, to ->
