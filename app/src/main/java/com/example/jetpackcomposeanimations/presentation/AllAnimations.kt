@@ -14,12 +14,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.R
 import com.example.jetpackcomposeanimations.presentation.button_animation.ShinyButton
 import com.example.jetpackcomposeanimations.presentation.card_animations.NeonShimmerPipeOnPath
 import com.example.jetpackcomposeanimations.presentation.card_animations.PipeMovingOnRoundedRectBorder
+import com.example.jetpackcomposeanimations.presentation.card_animations.ScratchCard
+import com.example.jetpackcomposeanimations.presentation.card_animations.ScratchCardAnimation
 import com.example.jetpackcomposeanimations.presentation.image_animations.MaskedImage
 import com.example.jetpackcomposeanimations.presentation.image_animations.PlaneHealth
 import com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation.CircleRevealPager
@@ -58,7 +63,7 @@ fun AnimationExamplesScreen() {
             content = {        AnimatedBorderCard(content = {}) }
         )*/
         //PipeMovingOnRoundedRectBorder()
-
+        ScratchCardAnimation()
 
         //************************** Shape Animations (Size or Padding) **************************
         //HideAndShowDiagonally()
@@ -72,10 +77,10 @@ fun AnimationExamplesScreen() {
         // RotateButtonAnimation()
         // ShakeButtonAnimation()
         // FadeButtonAnimation()
-        ShinyButton(
+        /*ShinyButton(
             text = "Click Me",
             onClick = { }
-        )
+        )*/
 
         //************************** Shape Animations (Translation) **************************
         // AnimateOffset()
