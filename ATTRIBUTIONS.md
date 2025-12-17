@@ -36,6 +36,7 @@ The following repository is licensed under the [Apache License, Version 2.0](htt
 ## 📄 Not Under Any License but used or modified in this project
 
 - [ComposeAnimations](https://github.com/antonshilov/ComposeAnimations)
+- [ScratchCardCompose](https://github.com/AdamDawi/ScratchCardCompose)
 
 
 
