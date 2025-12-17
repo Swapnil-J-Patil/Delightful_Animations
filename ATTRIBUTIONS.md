@@ -37,6 +37,9 @@ The following repository is licensed under the [Apache License, Version 2.0](htt
 
 - [ComposeAnimations](https://github.com/antonshilov/ComposeAnimations)
 - [ScratchCardCompose](https://github.com/AdamDawi/ScratchCardCompose)
+- [CubePager](https://gist.github.com/sinasamaki/55693586ea97e0e425c22230c18a4784?ref=sinasamaki.com)
+- [CircleRevealPager](https://gist.github.com/sinasamaki/c365c6b7e0b3265e37d7ad8cf6ac242e?ref=sinasamaki.com)
+- [MoviePager](https://gist.github.com/sinasamaki/a07304c1081bf615d2496945acc934cd?ref=sinasamaki.com)
 
 
 
