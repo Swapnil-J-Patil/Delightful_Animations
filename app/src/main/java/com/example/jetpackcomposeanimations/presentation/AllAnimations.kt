@@ -6,6 +6,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -27,6 +29,7 @@ import com.example.jetpackcomposeanimations.presentation.card_animations.Scratch
 import com.example.jetpackcomposeanimations.presentation.card_animations.ScratchCardAnimation
 import com.example.jetpackcomposeanimations.presentation.image_animations.MaskedImage
 import com.example.jetpackcomposeanimations.presentation.image_animations.PlaneHealth
+import com.example.jetpackcomposeanimations.presentation.image_animations.SwingingPainting
 import com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation.CircleRevealPager
 import com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation.ColorPager
 import com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation.MoviePager
@@ -63,7 +66,13 @@ fun AnimationExamplesScreen() {
             content = {        AnimatedBorderCard(content = {}) }
         )*/
         //PipeMovingOnRoundedRectBorder()
-        ScratchCardAnimation()
+        //ScratchCardAnimation()
+        SwingingPainting(
+            modifier = Modifier
+                .width(220.dp)
+                .height(280.dp),
+            imageUrl = "https://cdn.britannica.com/24/189624-050-F3C5BAA9/Mona-Lisa-oil-wood-panel-Leonardo-da.jpg?w=400&h=300&c=crop"
+        )
 
         //************************** Shape Animations (Size or Padding) **************************
         //HideAndShowDiagonally()
