@@ -23,6 +23,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.R
 import com.example.jetpackcomposeanimations.presentation.button_animation.ShinyButton
+import com.example.jetpackcomposeanimations.presentation.card_animations.DemoScreenWithModifier
+import com.example.jetpackcomposeanimations.presentation.card_animations.DemoScreenWithModifierV2
 import com.example.jetpackcomposeanimations.presentation.card_animations.NeonShimmerPipeOnPath
 import com.example.jetpackcomposeanimations.presentation.card_animations.PipeMovingOnRoundedRectBorder
 import com.example.jetpackcomposeanimations.presentation.card_animations.ScratchCard
@@ -67,12 +69,14 @@ fun AnimationExamplesScreen() {
         )*/
         //PipeMovingOnRoundedRectBorder()
         //ScratchCardAnimation()
-        SwingingPainting(
-            modifier = Modifier
-                .width(220.dp)
-                .height(280.dp),
-            imageUrl = "https://cdn.britannica.com/24/189624-050-F3C5BAA9/Mona-Lisa-oil-wood-panel-Leonardo-da.jpg?w=400&h=300&c=crop"
-        )
+        DemoScreenWithModifier()
+        //DemoScreenWithModifierV2()
+//        SwingingPainting(
+//            modifier = Modifier
+//                .width(220.dp)
+//                .height(280.dp),
+//            imageUrl = "https://cdn.britannica.com/24/189624-050-F3C5BAA9/Mona-Lisa-oil-wood-panel-Leonardo-da.jpg?w=400&h=300&c=crop"
+//        )
 
         //************************** Shape Animations (Size or Padding) **************************
         //HideAndShowDiagonally()
