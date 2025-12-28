@@ -44,6 +44,20 @@ A systematically organized collection of cool animations for buttons, cards, ima
   </tr>
 </table>
 
+<table>
+  <tr>
+    <th>Wall Painting Animation</th>
+  </tr>
+
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/593fd16a-3237-48dd-aa5a-e476f54d6b24" alt="wall painting" width="250"></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/Swapnil-J-Patil/Delightful_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/image_animations/SwingingPainting.kt">🔗 Source Code</a></td>
+  
+  </tr>
+</table>
+
 **List Animations**<br>
 <table>
   <tr>
