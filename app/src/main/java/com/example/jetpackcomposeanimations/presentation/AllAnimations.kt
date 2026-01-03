@@ -6,8 +6,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -16,25 +14,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.res.imageResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.example.jetpackcomposeanimations.R
-import com.example.jetpackcomposeanimations.presentation.button_animation.ShinyButton
-import com.example.jetpackcomposeanimations.presentation.card_animations.DemoScreenWithModifier
-import com.example.jetpackcomposeanimations.presentation.card_animations.DemoScreenWithModifierV2
-import com.example.jetpackcomposeanimations.presentation.card_animations.NeonShimmerPipeOnPath
-import com.example.jetpackcomposeanimations.presentation.card_animations.PipeMovingOnRoundedRectBorder
-import com.example.jetpackcomposeanimations.presentation.card_animations.ScratchCard
-import com.example.jetpackcomposeanimations.presentation.card_animations.ScratchCardAnimation
-import com.example.jetpackcomposeanimations.presentation.image_animations.MaskedImage
-import com.example.jetpackcomposeanimations.presentation.image_animations.PlaneHealth
-import com.example.jetpackcomposeanimations.presentation.image_animations.SwingingPainting
-import com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation.CircleRevealPager
-import com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation.ColorPager
-import com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation.MoviePager
+import com.example.jetpackcomposeanimations.presentation.navbar_animation.horizontal_nav_item.HorizontalNavItem
 
 
 @RequiresApi(Build.VERSION_CODES.S)
@@ -65,19 +46,26 @@ fun AnimationExamplesScreen() {
             glowingColor = blue,
             modifier = Modifier.size(300.dp),
             cornersRadius = 20.dp,
-            content = {        AnimatedBorderCard(content = {}) }
+            content = {  AnimatedBorderCard(content = {}) }
         )*/
         //PipeMovingOnRoundedRectBorder()
         //ScratchCardAnimation()
-        DemoScreenWithModifier()
-        //DemoScreenWithModifierV2()
-//        SwingingPainting(
-//            modifier = Modifier
-//                .width(220.dp)
-//                .height(280.dp),
-//            imageUrl = "https://cdn.britannica.com/24/189624-050-F3C5BAA9/Mona-Lisa-oil-wood-panel-Leonardo-da.jpg?w=400&h=300&c=crop"
-//        )
 
+        //************************** AGSL Animations **************************
+        //DemoScreenWithModifier()
+        //DemoScreenWithModifierV2()
+
+        //        SwingingPainting(
+        //            modifier = Modifier
+        //                .width(220.dp)
+        //                .height(280.dp),
+        //            imageUrl = "https://cdn.britannica.com/24/189624-050-F3C5BAA9/Mona-Lisa-oil-wood-panel-Leonardo-da.jpg?w=400&h=300&c=crop"
+        //        )
+
+
+        //************************** Navbar Animations **************************
+
+        HorizontalNavItem()
         //************************** Shape Animations (Size or Padding) **************************
         //HideAndShowDiagonally()
         // HideSwiftly()

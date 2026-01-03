@@ -1,39 +1,26 @@
-package com.example.jetpackcomposeanimations.presentation.card_animations
+package com.example.jetpackcomposeanimations.presentation.agsl_animation
 
 import android.graphics.BitmapShader
 import android.graphics.Shader
 import android.os.Build
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RawRes
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Slider
-import androidx.compose.material3.SliderDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
@@ -41,7 +28,6 @@ import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.imageResource
-import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeanimations.R
 import kotlinx.coroutines.launch
 
@@ -120,7 +106,8 @@ fun Modifier.liquidGlass(
                             androidBmp.height.toFloat(),
                             0f
                         )
-                    } else {
+                    }
+                    else {
                         shader.setFloatUniform("iImageResolution", 0f, 0f, 0f)
                     }
 
@@ -136,7 +123,7 @@ fun Modifier.liquidGlass(
     )
 }
 
-@Composable
+/*@Composable
 private fun BottomControls(
     value: Float,
     onChange: (Float) -> Unit,
@@ -160,7 +147,7 @@ private fun BottomControls(
             modifier = Modifier.fillMaxWidth()
         )
     }
-}
+}*/
 
 @Composable
 fun DemoScreenWithModifier() {
@@ -223,10 +210,10 @@ fun DemoScreenWithModifierV2()
                 )
             }
     ) {
-        BottomControls(
+        /*BottomControls(
             value = baseSize,
             onChange = { baseSize = it },
             modifier = Modifier.align(Alignment.BottomCenter)
-        )
+        )*/
     }
 }
