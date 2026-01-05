@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeanimations.presentation.navbar_animation.horizontal_nav_item
+package com.example.jetpackcomposeanimations.presentation.navbar_animation.horizontal_nav_item_navbar
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background

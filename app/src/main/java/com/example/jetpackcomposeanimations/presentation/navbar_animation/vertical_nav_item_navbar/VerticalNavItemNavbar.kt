@@ -1,6 +1,7 @@
-package com.example.jetpackcomposeanimations.presentation.navbar_animation.horizontal_nav_item
+package com.example.jetpackcomposeanimations.presentation.navbar_animation.vertical_nav_item_navbar
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
@@ -22,29 +23,34 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
 
+
+@OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
-fun HorizontalNavItem(modifier: Modifier = Modifier) {
+fun VerticalNavItemNavbar() {
     val screen = listOf(
-        Navbar.Home,
-        Navbar.Market,
-        Navbar.Saved,
+        Navbar.ForYou,
+        Navbar.Search,
+        Navbar.Chat,
+        Navbar.Match,
         Navbar.Profile
     )
 
     val configuration = LocalConfiguration.current
     val isTab = configuration.screenWidthDp.dp > 600.dp
 
-    var selectedTab by rememberSaveable(stateSaver = Saver(
-        save = { it },
-        restore = { it }
-    )) { mutableStateOf(0) }
+    var selectedTab by rememberSaveable(
+        stateSaver = Saver(
+            save = { it },
+            restore = { it }
+        )) { mutableStateOf(0) }
     var bottomBarVisibility by remember { mutableStateOf(true) }
-
+    var isChatClicked by remember { mutableStateOf(false) }
     Surface(
         modifier = Modifier.fillMaxSize()
             .navigationBarsPadding(),
         color = MaterialTheme.colorScheme.background
     ) {
+
         if (isTab) {
 
             Box(
@@ -69,24 +75,28 @@ fun HorizontalNavItem(modifier: Modifier = Modifier) {
                 ) {
                     BottomNavAnimation(
                         screens = screen,
-                        isTab = isTab,
                         selectedTab = selectedTab,  // Pass selectedTab
                         onClick = { tab ->
                             selectedTab = tab
                             when (tab) {
-                              /*  0 -> mainScreenViewModel.toggleTab("home")
-                                1 -> mainScreenViewModel.toggleTab("market")
-                                2 -> mainScreenViewModel.toggleTab("saved")
-                                3 -> mainScreenViewModel.toggleTab("profile")*/
+                                0 -> {}
+                                1 -> {}
+                                2 -> {
+
+                                    isChatClicked = true
+                                }
+
+                                3 -> {}
+                                4 -> {}
+
                             }
-                        }
+                        },
+                        isChatClicked = isChatClicked
                     )
                 }
             }
 
         } else {
-
-
             Box(
                 modifier = Modifier
                     .fillMaxSize(),
@@ -109,19 +119,26 @@ fun HorizontalNavItem(modifier: Modifier = Modifier) {
                 ) {
                     BottomNavAnimation(
                         screens = screen,
-                        isTab = isTab,
                         selectedTab = selectedTab,  // Pass selectedTab
                         onClick = { tab ->
                             selectedTab = tab
                             when (tab) {
-                               /* 0 -> mainScreenViewModel.toggleTab("home")
-                                1 -> mainScreenViewModel.toggleTab("market")
-                                2 -> mainScreenViewModel.toggleTab("saved")
-                                3 -> mainScreenViewModel.toggleTab("profile")*/
+                                0 -> {}
+                                1 -> {}
+                                2 -> {
+
+                                    isChatClicked = true
+                                }
+
+                                3 -> {}
+                                4 -> {}
+
                             }
-                        }
+                        },
+                        isChatClicked = isChatClicked
                     )
                 }
+
             }
         }
     }

@@ -15,7 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.jetpackcomposeanimations.presentation.navbar_animation.horizontal_nav_item.HorizontalNavItem
+import com.example.jetpackcomposeanimations.presentation.navbar_animation.vertical_nav_item_navbar.VerticalNavItemNavbar
 
 
 @RequiresApi(Build.VERSION_CODES.S)
@@ -65,7 +65,8 @@ fun AnimationExamplesScreen() {
 
         //************************** Navbar Animations **************************
 
-        HorizontalNavItem()
+        //HorizontalNavItemNavbar()
+        VerticalNavItemNavbar()
         //************************** Shape Animations (Size or Padding) **************************
         //HideAndShowDiagonally()
         // HideSwiftly()
