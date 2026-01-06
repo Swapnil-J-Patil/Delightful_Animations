@@ -140,6 +140,23 @@ A systematically organized collection of cool animations for buttons, cards, ima
   </tr>
 </table>
 
+**Navbar Animations**<br>
+<table>
+  <tr>
+    <th>Horizontal Flip Navbar</th>
+    <th>Vertical Flip Navbar</th>
+  </tr>
+
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/0ff5d4c5-7b45-498b-a64a-18190705278c" alt="Color Animation" width="250"></td>
+    <td><img src="https://github.com/user-attachments/assets/21990bd9-80ac-43b4-afbe-0636b45a487b" alt="Color Animation" width="250"></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/Swapnil-J-Patil/Delightful_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/navbar_animation/horizontal_nav_item_navbar/HorizontalNavItemNavbar.kt">🔗 Source Code</a></td>
+        <td><a href="https://github.com/Swapnil-J-Patil/Delightful_Animations/blob/master/app/src/main/java/com/example/jetpackcomposeanimations/presentation/navbar_animation/vertical_nav_item_navbar/VerticalNavItemNavbar.kt">🔗 Source Code</a></td>
+  </tr>
+</table>
+
 **Text Animations**<br>
 <table>
   <tr>
