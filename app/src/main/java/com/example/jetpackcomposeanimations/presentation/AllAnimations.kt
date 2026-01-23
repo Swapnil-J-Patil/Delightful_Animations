@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.jetpackcomposeanimations.presentation.button_animation.fab_animation.ExpandableFAB
 import com.example.jetpackcomposeanimations.presentation.navbar_animation.vertical_nav_item_navbar.VerticalNavItemNavbar
 
 
@@ -66,7 +67,8 @@ fun AnimationExamplesScreen() {
         //************************** Navbar Animations **************************
 
         //HorizontalNavItemNavbar()
-        VerticalNavItemNavbar()
+        //VerticalNavItemNavbar()
+
         //************************** Shape Animations (Size or Padding) **************************
         //HideAndShowDiagonally()
         // HideSwiftly()
@@ -83,6 +85,7 @@ fun AnimationExamplesScreen() {
             text = "Click Me",
             onClick = { }
         )*/
+        ExpandableFAB()
 
         //************************** Shape Animations (Translation) **************************
         // AnimateOffset()
