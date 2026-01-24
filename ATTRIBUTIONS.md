@@ -41,6 +41,6 @@ The following repository is licensed under the [Apache License, Version 2.0](htt
 - [CircleRevealPager](https://gist.github.com/sinasamaki/c365c6b7e0b3265e37d7ad8cf6ac242e?ref=sinasamaki.com)
 - [MoviePager](https://gist.github.com/sinasamaki/a07304c1081bf615d2496945acc934cd?ref=sinasamaki.com)
 - [HorizontalNavItemNavbar](https://www.sinasamaki.com/bottom-navigation-animation-in-jetpack-compose/)
-
+- [FABAnimation](https://github.com/sinasamaki/metaBalls/blob/master/app/src/main/java/com/sinasamaki/metaballs/pages/ExpandableFAB.kt?ref=sinasamaki.com)
 
 
