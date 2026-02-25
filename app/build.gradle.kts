@@ -80,5 +80,6 @@ dependencies {
     implementation ("androidx.compose.material:material-icons-extended:1.7.6")
     implementation ("com.airbnb.android:lottie-compose:6.0.0") // Add the Lottie Compose dependency
 
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
 
 }

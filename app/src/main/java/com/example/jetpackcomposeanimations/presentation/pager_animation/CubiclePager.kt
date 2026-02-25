@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation
+package com.example.jetpackcomposeanimations.presentation.pager_animation
 
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.foundation.ExperimentalFoundationApi

@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.jetpackcomposeanimations.presentation.button_animation.fab_animation.ExpandableFAB
 import com.example.jetpackcomposeanimations.presentation.navbar_animation.vertical_nav_item_navbar.VerticalNavItemNavbar
+import com.example.jetpackcomposeanimations.presentation.pager_animation.flip_pager.FlipPagerAnimation
 
 
 @RequiresApi(Build.VERSION_CODES.S)
@@ -85,7 +86,7 @@ fun AnimationExamplesScreen() {
             text = "Click Me",
             onClick = { }
         )*/
-        ExpandableFAB()
+        //ExpandableFAB()
 
         //************************** Shape Animations (Translation) **************************
         // AnimateOffset()
@@ -178,6 +179,9 @@ fun AnimationExamplesScreen() {
             imageResId = R.drawable.can_image, // background label image
             maskResId = R.drawable.img_1     // can-shaped alpha mask
         )*/
+
+        //Pager animation
+        FlipPagerAnimation()
 
         //************************** Other Animations **************************
         //LuckyWheelScreen()

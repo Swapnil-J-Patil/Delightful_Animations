@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeanimations.presentation.image_animations.pager_animation
+package com.example.jetpackcomposeanimations.presentation.pager_animation
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
